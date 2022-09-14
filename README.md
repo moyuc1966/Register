@@ -39,7 +39,7 @@
 医院信息（包括分院，各级科室，对应分院、楼层导航，小程序轮播图，各类文章）
 充值缴费退款记录管理，预约记录管理和操作，近7天数据分析
 ```
-![管理后台首页](https://github.com/moyuc1966/Register/raw/master/images/admin-index.png "管理后台首页") 
+![管理后台首页](https://github.com/moyuc1966/Register/blob/main/images/admin-index.png "管理后台首页") 
 
 # 部署示例
 ## 后端部署（api）
@@ -167,13 +167,13 @@ globalData: {
 ```
 
 # 截图预览
-![管理后台首页](https://github.com/moyuc1966/Register/raw/master/images/admin-index.png "管理后台首页") 
-![管理-医生排班](https://github.com/moyuc1966/Register/raw/master/images/admin-his.png "医生排班") 
-![管理排班设置](https://github.com/moyuc1966/Register/raw/master/images/admin-2.png "管理排班设置") 
-![文章编辑](https://github.com/moyuc1966/Register/raw/master/images/admin-3.png "文章编辑") 
-![小程序首页](https://github.com/moyuc1966/Register/raw/master/images/wx-1.jpg "小程序首页")
-![小程序预约](https://github.com/moyuc1966/Register/raw/master/images/wx-2.jpg "小程序预约") 
-![小程序退款](https://github.com/moyuc1966/Register/raw/master/images/wx-3.jpg "小程序退款") 
-![小程序预约记录](https://github.com/moyuc1966/Register/raw/master/images/wx-1.jpg "小程序预约记录") 
+![管理后台首页](https://github.com/moyuc1966/Register/blob/main/images/admin-index.png "管理后台首页") 
+![管理-医生排班](https://github.com/moyuc1966/Register/blob/main/images/admin-his.png "医生排班") 
+![管理排班设置](https://github.com/moyuc1966/Register/blob/main/images/admin-2.png "管理排班设置") 
+![文章编辑](https://github.com/moyuc1966/Register/blob/main/images/admin-3.png "文章编辑") 
+![小程序首页](https://github.com/moyuc1966/Register/blob/main/images/wx-1.jpg "小程序首页")
+![小程序预约](https://github.com/moyuc1966/Register/blob/main/images/wx-2.jpg "小程序预约") 
+![小程序退款](https://github.com/moyuc1966/Register/blob/main/images/wx-3.jpg "小程序退款") 
+![小程序预约记录](https://github.com/moyuc1966/Register/blob/main/images/wx-4.jpg "小程序预约记录") 
 
 
