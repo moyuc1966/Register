@@ -88,7 +88,8 @@ Page({
 			relation:this.data.patList[e.detail.value].relation,
 			certificate:this.data.patList[e.detail.value].certificate,
 			balance:this.data.patList[e.detail.value].balance.toFixed(2),
-			money:''
+			money:50,
+			index:1
 		})
 	  },
 	  post(){
