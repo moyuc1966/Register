@@ -1,0 +1,47 @@
+<text class="ts">请认真填写就诊人信息</text>
+<view class="block">
+	<text class="tit">关系</text>
+	<picker mode="selector"  range="{{relationArray}}" value="{{relationIndex}}" bindchange="relationchangeValue">
+    	<text>{{info.relation}}</text>
+	</picker>
+	<image src="../../../../image/next.svg" bindchange="changeValue"></image>
+</view>
+<view class="block">
+	<text class="tit">姓名</text>
+	<input bindinput="onChange" data-key="name" model:value="{{info.name}}" placeholder="请填写真实姓名" placeholder-style="color:#D7D7D7" maxlength="15"></input>
+</view>
+<view class="block">
+	<text class="tit">证件类型</text>
+	<picker mode="selector" range="{{docTypeArray}}" value="{{docTypeIndex}}" bindchange="docTypechangeValue">
+    	<text >{{info.docType}}</text>
+	</picker>
+	<image src="../../../../image/next.svg" bindchange="changeValue"></image>
+</view>
+<view class="block">
+	<text class="tit">证件号码</text>
+	<input bindinput="onChange" data-key="certificate" model:value="{{info.certificate}}" placeholder="请填写对应证件号" placeholder-style="color:#D7D7D7" maxlength="30" type="idcard"></input>
+</view>
+<view class="block">
+	<text class="tit">就诊卡号</text>
+	<input bindinput="onChange" data-key="card" model:value="{{info.card}}" placeholder="请填入就诊卡号" placeholder-style="color:#D7D7D7" maxlength="15" type="number"></input>
+</view>
+<view class="block">
+	<text class="tit">手机号码</text>
+	<input bindinput="onChange" data-key="phone" model:value="{{info.phone}}" placeholder="请填写可接通的手机号" placeholder-style="color:#D7D7D7" maxlength="15" type="number"></input>
+</view>
+<view class="block">
+	<text class="tit">居住地址</text>
+	<textarea bindinput="onChange" data-key="address" model:value="{{info.address}}"  placeholder="选填" 	placeholder-style="color:#D7D7D7;font-weight:100;" maxlength="100"></textarea>
+</view>
+<view class="block">
+	<text class="tit long">设为默认就诊人</text>
+	<switch checked="{{info.isdefault == 1}}" color="#006eff" style='zoom:.7;' bindchange="changeValue" ></switch>
+</view>
+
+<view class="tw">
+	初次添加就诊人请绑定本院就诊卡号，未持有本院就诊卡的患者需到本院自助机或窗口办理就诊卡后方可进行添加。
+</view>
+<view class="button" bindtap="post" wx:if="{{id == 0}}">保存</view>
+<view class="button" bindtap="mod" wx:if="{{id != 0}}">保存</view>
+<view class="button del" bindtap="del" wx:if="{{id != 0}}">删除就诊人</view>
+<view style="width: 1px;height: 60px;"></view>

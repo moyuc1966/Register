@@ -1,0 +1,15 @@
+
+<view wx:if="{{list.length == 0}}" class="not">
+	<image src="../../image/not.png"></image>
+	<text>数据为空</text>
+</view>
+<view wx:else>
+	<view class="block" wx:for="{{list}}" wx:key="index" bindtap="uigo" data-id="{{item.id}}">
+		<image mode="scaleToFill" class="logo" src="../../image/56560.png"></image>
+		<view>
+			<text class="name">{{item.name}}</text>
+			<text class="address">{{item.address}}</text>
+		</view>
+		<image class="next" src="../../image/next.svg"></image>
+	</view>
+</view>

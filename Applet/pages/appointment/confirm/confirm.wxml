@@ -1,0 +1,53 @@
+<wxs module="tool" src="/utils/tool.wxs"></wxs>
+<view class="main">
+	<view class="content">
+		<view class="block">
+			<image src="{{url + doctor.photo}}"></image>
+			<text class="con" style="color:#000;font-size: 17px;">{{doctor.name}}</text>
+			<view class="tit" style="margin-left: 10px;font-size: 14px;">{{doctor.position}}</view>
+		</view>
+		<view class="block">
+			<view class="tit">就诊医院</view>
+			<text class="con">{{hosName}}</text>
+		</view>
+		<view class="block">
+			<view class="tit">就诊科室</view>
+			<text class="con">{{depName}}</text>
+		</view>
+		<view class="block">
+			<view class="tit">挂号类型</view>
+			<text class="con">{{type}}</text>
+		</view>
+		<view class="block">
+			<view class="tit">门诊时间</view>
+			<text class="con">{{time}}</text>
+		</view>
+		<view class="block">
+			<view class="tit">候诊时间</view>
+			<text class="con">{{datetime}}</text>
+		</view>
+		<view class="block">
+			<text class="tit" space="ensp">挂 号 费</text>
+			<text class="con"><text style="color: red;">￥{{tool.moenyago(reg)}}</text>（就诊时支付）</text>
+		</view>
+		<view class="block">
+			<text class="tit" space="ensp">问 诊 费</text>
+			<text class="con"><text style="color: red;">￥{{tool.moenyago(dia)}}</text>（就诊时支付）</text>
+		</view>
+	</view>
+	<view class="content">
+		<view class="block">
+			<text class="tit" space="ensp">就 诊 人</text>
+			<text class="con">{{patName}}</text>
+		</view>
+		<view class="block">
+			<text class="tit" space="ensp">总 费 用</text>
+			<text class="con"><text style="color: red;">￥{{tool.moenyago(tool.sum(dia,reg))}}</text>（就诊时支付）</text>
+		</view>
+	</view>
+	<view class="button" wx:if="{{item.state == 0}}" bindtap="cancel">取消预约</view>
+	<view style="height: 15px;width: 1;"></view>
+	<text class="read" bindtap="readUigo">挂号前请仔细阅读<text style="color: #006eff;" bindtap="readUigo">《挂号须知》</text> </text>
+	<view bindtap="post" class="button">确认预约</view>
+	<view style="height: 30px;width: 1;"></view>
+</view>

@@ -1,0 +1,70 @@
+<swiper indicator-dots='true' autoplay="{{true}}" interval="3000" duration="400" >
+	<swiper-item wx:for="{{swiper}}" wx:key="index" bindtap="swiperUigo" data-patid="{{item.id}}" >
+		<image src='{{url + item.imgUrl}}' mode="scaleToFill" binderror="imageError" data-index="{{index}}"></image>
+	</swiper-item>
+</swiper>
+<view class="tap">
+	<view class="tapLeft"></view>
+	<text>门诊服务</text>
+</view>
+<view class="zhu">
+	<view class="zhuBlock zhuTop" bindtap="make">
+		<view>
+			<text class="tit">预约挂号</text>
+			<text class="ftit">在线挂号预约</text>
+		</view>
+		<image class="zhuImg" src="../../image/yy.png"></image>
+	</view>
+	<view class="zhuBlock zhubotm" bindtap="recharge">
+		<view>
+			<text class="tit">在线充值</text>
+			<text class="ftit">就诊卡预存充值</text>
+		</view>
+		<image class="zhuImg zhuImg2" src="../../image/cz.png"></image>
+	</view>
+</view>
+<view class="mor">
+	<view class="morBlock" bindtap="indexPay">
+		<image src="../../image/jf.png"></image>
+		<text>自助缴费</text>
+	</view>
+	<view class="morBlock" bindtap="indexMake">
+		<image src="../../image/mz.png"></image>
+		<text>正在预约</text>
+	</view>
+	<view class="morBlock" bindtap="refund">
+		<image src="../../image/tk.png"></image>
+		<text>在线退款</text>
+	</view>
+	<view class="morBlock" bindtap="message">
+		<view class="msgNum"  wx:if="{{msgNum > 0}}">{{msgNum}}</view>
+		<image src="../../image/xx.png"></image>
+		<text>我的消息</text>
+	</view>
+</view>
+<view class="tap">
+	<view class="tapLeft"></view>
+	<text>医院服务</text>
+</view>
+<view class="mor his">
+	<view class="morBlock" bindtap="articleUigo" data-name="医院公告">
+		<image src="../../image/gg2.png"></image>
+		<text>医院公告</text>
+	</view>
+	<view class="morBlock" bindtap="navUigo">
+		<image src="../../image/dh.png"></image>
+		<text>医院导航</text>
+	</view>
+	<view class="morBlock" bindtap="course_uigo">
+		<image src="../../image/zn.png"></image>
+		<text>就医指南</text>
+	</view>
+	<view class="morBlock" bindtap="articleUigo" data-name="健康百科">
+		<image src="../../image/jk.png"></image>
+		<text>健康百科</text>
+	</view>
+	<view class="morBlock lastBlock" bindtap="articleUigo" data-name="文章分享">
+		<image src="../../image/wz.png"></image>
+		<text>文章分享</text>
+	</view>
+</view>

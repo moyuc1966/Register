@@ -1,0 +1,53 @@
+<wxs module="filter" src="/utils/tool.wxs"></wxs>
+<view wx:if="{{name == ''}}" class="not">
+	<image src="../../image/not.png"></image>
+	<text>请先添加就诊人</text>
+</view>
+<view class="main" wx:else>
+	<view class="pat">
+		<view>
+			<view class="patCont">
+				<text class="name">{{name}}</text>
+				<text class="relation">{{relation}}</text>
+			</view>
+			<text class="card">{{certificate}}</text>
+		</view>
+		<view class="change">
+			<picker mode="selector" range="{{patList}}" range-key="{{'name'}}" bindchange="changeValue">
+				<image src="../../image/u689.svg"></image>
+				<text>切换就诊人</text>
+			</picker>
+		</view>
+	</view>
+	<view class="tap">
+		<view class="tapLeft"></view>
+		<text>预约记录</text>
+	</view>
+	<view wx:if="{{orderList.length == 0}}" class="not">
+		<image src="../../image/not.png"></image>
+		<text>数据为空</text>
+	</view>
+	<view wx:else>
+		<view class="block" wx:for="{{orderList}}" wx:key="index" bindtap="uigo" data-id="{{item.id}}">
+			<view class="top">
+				<text class="depName">{{item.depName}}</text>
+				<text class="doctorName">{{item.doctorName}}</text>
+				<text class="state" style="color:{{item.state==0?'#006EFF':item.state==1?'#00d306':'#AAAAAA'}};">{{item.state==0?'预约成功':item.state==1?'已完成':'已取消'}}</text>
+			</view>
+			<view class="botm">
+				<view>
+					<text class="tit">预约医院</text>
+					<text class="con">{{item.hosName}}</text>
+				</view>
+				<view>
+					<text class="tit">预约日期</text>
+					<text class="con">{{item.time}}</text>
+				</view>
+				<view>
+					<text class="tit">预约类型</text>
+					<text class="con">{{item.type}}</text>
+				</view>
+			</view>
+		</view>
+	</view>
+</view>

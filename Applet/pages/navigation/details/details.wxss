@@ -1,0 +1,102 @@
+/* pages/navigation/details/details.wxss */
+.block{
+	width: 100%;
+	margin: 10px auto;
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	position: relative;
+	padding-bottom: 10px;
+}
+.block .logo{
+	width: 65px;
+	height: 65px;
+	border-radius: 5px;
+	background-color:#e6f1ff ;
+}
+.block view{
+	margin-left: 15px;
+	width: calc(100% - 90px);
+}
+.block .name{
+	font-size: 19px;
+	color: #333;
+	display: block;
+	overflow: hidden;
+}
+.block .address{
+	font-size: 14px;
+	color:  #7F7F7F;
+	display: block;
+	overflow: hidden;
+	margin-top: 8px;
+}
+.main{
+	padding: 10px;
+	width: 90%;
+	min-height: 120px;
+	box-sizing: border-box;
+	border-radius: 2px;
+	border: 1px solid #eee;
+	margin: 15px auto;
+}
+.contact{
+	border-top: 1px solid #eee;
+	height: 55px;
+	padding: 10px;
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+}
+.contact .dh,.phone{
+	color: #333;
+	font-size: 15px;
+	margin-right: 15px;
+}
+.contact image{
+	width: 16px;
+	height: 16px;
+	margin-left: 10px;
+}
+.reco{
+	height: auto;
+	align-items: flex-start;
+	justify-content: flex-start;
+	padding-bottom: 20px;
+}
+.reco .dh{
+	display: block;
+	width: 55px;
+}
+.reco .phone{
+	width: calc(100% + 150px);
+	display: block;
+	text-align: left;
+	color: #333333;
+	margin-left: 0;
+	margin-right: 0;
+	line-height: 22px;
+	font-family: 'PingFangSC-Light', 'PingFang SC Light', 'PingFang SC';
+}
+.floor{
+	border-top: 1px solid #eee;
+	padding-top: 20px;
+	box-sizing: border-box;
+}
+.floor .next{
+	width: 10px !important;
+	height: 14px !important;
+	position: absolute;right: 5px;
+	top: calc(50% - 7px);
+	background-color: #fff;
+}
+.floor .logo{
+	width: 25px;
+	height:25px;
+	margin-left: 17px;
+}
+.floor .name{
+	color: #333;
+	font-size: 17px;
+	margin-left: 16px;
+}

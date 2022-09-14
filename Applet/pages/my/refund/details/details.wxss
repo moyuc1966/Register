@@ -1,0 +1,41 @@
+/* pages/my/recorder/details/details.wxss */
+.title{
+	display: block;
+	font-size: 25px;
+	text-align: center;
+	width: 100%;
+	margin-top: 25px;
+}
+.ts{
+	color: #333;
+	display: block;
+	width: 100%;
+	margin-top: 8px;
+	font-size: 15px;
+	text-align: center;
+}
+.main{
+	border-top: 1px solid #eee;
+	width: 88%;
+	margin: 30px auto;
+	padding-top: 15px;
+}
+.block{
+	display: flex;
+	align-items: center;
+	height: 40px;
+}
+.tit{
+	width: 72px;
+	font-size: 15px;
+	color: #AAA;
+	display: block;
+	font-weight: 300;
+}
+.cont{
+	display: block;
+	font-size: 16px;
+	color: #333;
+	margin-left: 12px;
+	font-weight: 300;
+}

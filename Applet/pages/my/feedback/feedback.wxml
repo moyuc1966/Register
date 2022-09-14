@@ -1,0 +1,26 @@
+<text class="ts">请填写反馈信息</text>
+<view class="block" bindchange="changeValue">
+	<text class="tit">问题类型</text>
+	<picker mode="selector" range="{{typeArray}}" value="{{typeIndex}}" bindchange="changeValue">
+    	<text style="color:{{select=='请选择问题类型' ? '#D7D7D7' : '#333'}}">{{select}}</text>
+	</picker>
+	<image src=".././../../image/next.svg" bindchange="changeValue"></image>
+</view>
+<view class="block">
+	<text class="tit">反馈标题</text>
+	<textarea model:value="{{title}}"  placeholder="请概括您遇到的问题30字以内" 	placeholder-style="color:#D7D7D7;font-weight:100;" maxlength="30"></textarea>
+</view>
+<view class="block">
+	<text class="tit">问题描述</text>
+	<textarea model:value="{{content}}" class="con" placeholder="请详细描述您遇到的问题150字以内" placeholder-style="color:#D7D7D7" maxlength="150"></textarea>
+</view>
+<view class="block">
+	<text class="tit">联系邮箱</text>
+	<input model:value="{{email}}" placeholder="方便我们反馈您的问题，可空" placeholder-style="color:#D7D7D7" maxlength="30"></input>
+</view>
+<view class="block">
+	<text class="tit">手机号码</text>
+	<input model:value="{{phone}}" placeholder="方便我们联系您，可空" placeholder-style="color:#D7D7D7" maxlength="15"></input>
+</view>
+<view class="button" bindtap="post">提交</view>
+<view style="width: 1;height: 50px;"></view>

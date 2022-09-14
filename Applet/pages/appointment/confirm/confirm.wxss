@@ -1,0 +1,98 @@
+/* pages/appointment/confirm/confirm.wxss */
+.main{
+	background-color: #fdfdff;
+	width: 100%;
+	height: 100%;
+	padding-bottom: 60px;
+}
+.logo{
+	width: 45px;
+	height: 45px;
+	display: block;
+	margin: 0 auto;
+	margin-bottom: 5px;
+}
+.tscg{
+	font-size: 18px;
+	color: #000;
+	display: block;
+	width: 100%;
+	text-align: center;
+}
+.content{
+	width: 88%;
+	padding: 10px;
+	border: 1px solid #eee;
+	border-radius: 3px;
+	min-height: 50px;
+	background-color: #fff;
+	margin: 20px auto;
+	-webkit-box-shadow: -1px 0px 13px 0px rgba(50, 50, 50, 0.05);
+	-moz-box-shadow:    -1px 0px 13px 0px rgba(50, 50, 50, 0.05);
+	box-shadow:         -1px 0px 13px 0px rgba(50, 50, 50, 0.05);
+}
+.button{
+	width: 88%;
+	margin: 35px auto;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	color: #006EFF;
+	background-color: #e4efff;
+	border-radius: 3px;
+}
+.content .block:last-child{
+	border: none;
+}
+.block{
+	height: 55px;
+	border-bottom: 1px solid #eee;
+	display: flex;
+	align-items: center;
+}
+.block .tit{
+	width: 72px;
+	font-size: 15px;
+	color: #aaa;
+	font-family: 'PingFangSC-Light', 'PingFang SC Light', 'PingFang SC';
+	font-weight: 100;
+	text-align: justify;
+	display: block;
+}
+.block .tit::after {
+	display: block;
+	width: 100%;
+	content: "";
+  }
+  .con{
+	  color: #333;
+	  font-size: 15px;
+	  font-weight: 100;
+	  margin-left: 8px;
+  }
+.block image{
+	width:45px;
+	height: 45px;
+	border-radius: 5px;
+	background-color: #e6f1ff;
+	border: 1px solid #ccc;
+	margin-left: 15px;
+	margin-right: 10px;
+}
+.read{
+	display: block;
+	font-size: 11px;
+	color: rgba(127, 127, 127, 0.6);
+	margin-left: 5%;
+	margin-top: 15px;
+}
+.button{
+	width: 90%;
+	margin: 20px auto 0 auto;
+	background-color: #006eff;
+	color: #fff;
+	line-height: 40px;
+	height: 40px;
+	border-radius: 3px;
+	text-align: center;
+}

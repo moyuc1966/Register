@@ -1,0 +1,8 @@
+<!--pages/sign/sign.wxml-->
+<view  class="content">
+	<text class="hr">请填写新的密码</text>
+	<input model:value="{{password}}" type="password" placeholder="请输入新密码" placeholder-style="color:#ccc;font-size:13px;" maxlength="22"/>
+	<input model:value="{{newpassword}}" type="password" placeholder="请重复输入新密码" placeholder-style="color:#ccc;font-size:13px;" maxlength="22"/>
+	<view class="button" style="margin-top: 40px;" bindtap="into">提交修改</view>
+</view>
+

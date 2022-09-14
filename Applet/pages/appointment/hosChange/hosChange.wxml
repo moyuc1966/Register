@@ -1,0 +1,61 @@
+<wxs module="tool" src="/utils/tool.wxs"></wxs>
+<view class="week">
+	<view class="week-top">
+		<view class="week-top-block" wx:for="{{weekeasy}}" wx:key="index">{{item.week}}</view>
+	</view>
+	<view class="week-botm">
+		<view class="{{chiose[index] ? 'week-botm-block2' : 'week-botm-block1'}}" wx:for="{{weekeasy}}" wx:key="index" data-index="{{index}}" bindtap="dateChange">{{item.date}}</view>
+	</view>
+</view>
+<text class="title">坐诊医生</text>
+<view wx:if="{{doctorList.length == 0}}" class="not">
+	<image src="../../../image/not.png"></image>
+	<text>还没有坐诊医生</text>
+</view>
+<view wx:else class="maim">
+	<view class="doc-block" wx:for="{{doctorList}}" wx:key="index" wx:if="{{item.state != 0}}" bindtap="uigoDoctor" data-orderId="{{item.id}}">
+		<image src="{{url + item.photo}}" mode="scaleToFill"></image>
+		<view class="doc">
+			<text class="name">{{item.name}}<text class="pos">{{item.position}}</text></text>
+			<text class="brief">{{item.brief}}</text>
+		</view>
+		<view class="chi">
+			<text class="price">￥{{tool.sum(item.reg,item.dia)}}</text>
+			<view  catchtap='clickPup' data-index="{{index}}">选择时间</view>
+		</view>
+	</view>
+</view> 
+<view class='pupContent {{click? "showContent": "hideContent"}} {{option? "open": "close"}}' hover-stop-propagation='true'>
+  <text class="utw-title">选择预约时间段</text>
+  <view class="wu">
+	<view wx:if="{{row.Mstate == 1 || row.Msurplus == 0}}" class="not">
+			<text class="not-title">上午号源</text>
+			<image src="../../../image/not.png"></image>
+			<text>上午医生在休息或没有余量了</text>
+		</view>
+		<view class="wu-main" wx:else>
+			<text class="wu-tit">上午号源剩余{{row.Msurplus}}</text>
+			<view class="seList">
+				<view class="seTime" wx:for="{{MList}}" wx:key="index"  data-AorM="上午" data-time="{{item}}" bindtap="chios">上午{{item}}</view>
+			</view>
+			
+		</view>
+  </view>
+  <view class="wu">
+		<view wx:if="{{row.Astate == 1 || row.Asurplus == 0}}" class="not">
+			<text class="not-title">下午号源</text>
+			<image src="../../../image/not.png"></image>
+			<text>下午医生在休息或没有余量了</text>
+		</view>
+		<view class="wu-main" wx:else>
+			<text class="wu-tit">下午号源剩余{{row.Asurplus}}</text>
+			<view class="seList">
+				<view class="seTime" wx:for="{{AList}}" wx:key="index" data-AorM="下午" data-time="{{item}}"  bindtap="chios">下午{{item}}</view>
+			</view>
+		</view>
+  </view>
+  <view style="height: 30px;width: 1px;"></view>
+</view>
+<!-- 固定的背景 -->
+<view class='pupContentBG {{click?"showBG":"hideBG"}} {{option?"openBG":"closeBG"}}' catchtap='clickPup'>
+</view>

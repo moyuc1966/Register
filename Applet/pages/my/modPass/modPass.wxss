@@ -1,0 +1,49 @@
+/* pages/sign/sign.wxss */
+.title{
+	display: block;
+	color: #000;
+	font-size: 25px;
+	font-weight: 400;
+	margin: 25px 0px 10px 25px;
+}
+.ftitle{
+	display: block;
+	color: rgb(160, 160, 160);
+	font-size: 14px;
+	letter-spacing: 2px;
+	margin-left: 25px;
+	margin-bottom: 48px;
+}
+input{
+	width: 85%;
+	background-color: #eee;
+	border-radius: 18px;
+	height: 40px;
+	padding: 3px;
+	padding-left: 7px;
+	font-size: 15px;
+	margin: 25px auto;
+}
+.button{
+	margin-top: 60px;
+	height: 45px;
+	border-radius: 20px;
+	width: 82%;
+	margin: 0 auto;
+	color: #fff;
+	background-color: #3478f7;
+	display: block;
+	line-height: 45px;
+	text-align: center;
+	font-size: 16px;
+}
+.content{
+	padding-bottom: 60px;
+}
+.hr{
+	display: block;
+	color: #000;
+	margin-left: 25px;
+	font-size: 14px;
+	margin-top: 50px;
+}

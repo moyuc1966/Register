@@ -1,0 +1,23 @@
+<view class="main">
+	<view class="block">
+		<image mode="scaleToFill" class="logo" src="../../../image/56560.png"></image>
+		<view>
+			<text class="name">{{item.name}}</text>
+			<text class="address">{{item.address}}</text>
+		</view>
+	</view>
+	<view class="contact ">
+		<text class="dh">电话</text>
+		<text class="phone">{{item.telephone}}</text>
+		<image mode="scaleToFill" src="../../../image/u1445.svg" bindtap="call"></image>
+	</view>
+	<view class="contact reco">
+		<text class="dh">交通</text>
+		<text class="phone">{{item.reco}}</text>
+	</view>
+	<view class="block floor" bindtap="uigo" data-id="{{item.id}}">
+		<image mode="scaleToFill" class="logo" src="../../../image/ydh.png"></image>
+		<text class="name">院内导航</text>
+		<image mode="scaleToFill" class="next" src="../../../image/next.svg"></image>
+	</view>
+</view>

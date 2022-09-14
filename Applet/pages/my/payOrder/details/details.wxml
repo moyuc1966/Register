@@ -1,0 +1,52 @@
+<wxs module="filter" src="/utils/tool.wxs"></wxs>
+<view class="main" wx:if="{{item.orderId != null}}">
+	<image src="{{item.state==0?'../../../../image/dzf.png': '../../../../image/u2165.svg'}}" mode="scaleToFill" class="logo"></image>
+	<text class="tscg">{{item.state==0?'待缴费': '缴费成功'}}</text>
+	<view class="content">
+		<view class="block">
+			<view class="tit">缴费类型</view>
+			<text class="con">{{item.type}}</text>
+		</view>
+		<view class="block">
+			<view class="tit">就诊科室</view>
+			<text class="con">{{item.dep}}</text>
+		</view>
+		<view class="block">
+			<view class="tit">就诊卡号</view>
+			<text class="con">{{item.card}}</text>
+		</view>
+		<view class="block">
+			<text class="tit" space="ensp">就 诊 人</text>
+			<text class="con">{{item.patName}}</text>
+		</view>
+	</view>
+
+	<view class="content">
+		<view class="block">
+			<text class="tit" space="ensp">费用明细</text>
+		</view>
+		<view class="block list" wx:for="{{item.rows}}" wx:key="index" wx:for-item="cell">
+			<view>
+				<text class="con">{{cell.name}}</text>
+				<text class="tit" space="ensp">单价：￥{{filter.moenyago(cell.price)}}  数量：{{cell.num}}</text>
+			</view>
+			<text class="con">￥{{filter.moenyago(cell.total)}}</text>
+		</view>
+	</view>
+
+	<view class="content">
+		<view class="block">
+			<text class="tit" space="ensp">订 单 号</text>
+			<text class="con">{{item.orderId}}</text>
+		</view>
+		<view class="block">
+			<view class="tit">订单金额</view>
+			<text class="con" style="color: red;">￥{{filter.moenyago(item.price)}}</text>
+		</view>
+		<view class="block">
+			<text class="tit" space="emsp">订单状态</text>
+			<text class="con">{{item.state==0 ? '待支付' : '已支付'}}</text>
+		</view>
+	</view>
+	<view class="button" wx:if="{{item.state == 0}}" bindtap="cancel">立即支付</view>
+</view>

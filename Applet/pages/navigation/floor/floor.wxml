@@ -1,0 +1,12 @@
+<view wx:if="{{list.length == 0}}" class="not">
+	<image src="../../../image/not.png"></image>
+	<text>数据为空</text>
+</view>
+<view wx:else>
+	<view class="block" wx:for="{{list}}" wx:key="index">
+		<text class="title">{{item.floorName}}</text>
+		<text class="content">{{item.content}}</text>
+	</view>
+</view>
+<text class="and" wx:if="{{list.length > 0}}">{{and}}</text>
+<view style="width: 1px; height: 30px;"></view>

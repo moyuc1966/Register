@@ -1,0 +1,65 @@
+/* pages/navigation/navigation.wxss */
+.not{
+	width: 100%;
+	height: 300px;
+	margin-top: 30px;
+}
+.not image{
+	width: 100%;
+}
+.not text{
+	font-size: 15px;
+	color: #ccc;
+	display: block;
+	width: 100%;
+	text-align: center;
+	margin-top: 20px;
+}
+.block{
+	width: 95%;
+	margin: 10px auto;
+	border-bottom: 1px solid #eee;
+	padding: 10px;
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	position: relative;
+	margin-bottom: 12px;
+}
+.block .logo{
+	width: 45px;
+	height: 45px;
+	border-radius: 5px;
+	background-color:#e6f1ff ;
+}
+.block view{
+	margin-left: 15px;
+}
+.block .name{
+	font-size: 17px;
+	color: rgb(27, 27, 27);
+	display: block;
+	overflow: hidden;
+    -webkit-line-clamp: 1;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+.block .address{
+	font-size: 12px;
+	color: rgb(119, 119, 119);
+	display: block;
+	overflow: hidden;
+    -webkit-line-clamp: 1;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+	-webkit-box-orient: vertical;
+	margin-top: 5px;
+}
+.next{
+	width: 10px !important;
+	height: 14px !important;
+	position: absolute;right: 5px;
+	top: calc(50% - 7px);
+	background-color: #fff;
+}

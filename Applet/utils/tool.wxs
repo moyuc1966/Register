@@ -1,0 +1,11 @@
+var moenyago = function (money){
+	return Number(money).toFixed(2)
+}
+var sum = function(a,b){
+	return Number(a) + Number(b)
+}
+
+module.exports = {
+	moenyago:moenyago,
+	sum:sum,
+}

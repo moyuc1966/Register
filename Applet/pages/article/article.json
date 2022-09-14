@@ -1,0 +1,8 @@
+{
+	"navigationBarBackgroundColor": "#fff",
+	"navigationBarTextStyle": "black",
+	"navigationBarTitleText": "加载中..",
+	"backgroundColor": "#fff",
+	"backgroundTextStyle": "light",
+	"onReachBottomDistance": 150
+  }

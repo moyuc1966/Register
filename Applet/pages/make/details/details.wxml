@@ -1,0 +1,54 @@
+<view class="main" wx:if="{{item.name != null}}">
+	<image src="{{item.state==0?'../../../image/u2165.svg':item.state == 1? '../../../image/wc3.png' : '../../../image/qx3.png'}}" mode="scaleToFill" class="logo"></image>
+	<text class="tscg">{{item.state==0?'预约成功':item.state == 1? '已完成挂号' : '已取消'}}</text>
+	<view class="content">
+		<view class="block">
+			<image src="{{url + doctor.photo}}"></image>
+			<text class="con" style="color:#000;font-size: 17px;">{{doctor.name}}</text>
+			<view class="tit" style="margin-left: 10px;font-size: 14px;">{{doctor.position}}</view>
+		</view>
+		<view class="block">
+			<view class="tit">就诊医院</view>
+			<text class="con">{{item.hosName}}</text>
+		</view>
+		<view class="block">
+			<view class="tit">就诊科室</view>
+			<text class="con">{{item.depName}}</text>
+		</view>
+		<view class="block">
+			<view class="tit">挂号类型</view>
+			<text class="con">{{item.type}}</text>
+		</view>
+		<view class="block">
+			<view class="tit">门诊时间</view>
+			<text class="con">{{item.time}}</text>
+		</view>
+		<view class="block">
+			<view class="tit">候诊时间</view>
+			<text class="con">{{item.datetime}}</text>
+		</view>
+		<view class="block">
+			<text class="tit" space="emsp">费  用</text>
+			<text class="con"><text style="color: red;">￥{{item.price}}</text>（就诊时支付）</text>
+		</view>
+		<view class="block">
+			<view class="tit">提交时间</view>
+			<text class="con">{{item.createTime}}</text>
+		</view>
+	</view>
+	<view class="content">
+		<view class="block">
+			<text class="tit" space="ensp">就 诊 人</text>
+			<text class="con">{{item.name}}</text>
+		</view>
+		<view class="block">
+			<view class="tit">身份证号</view>
+			<text class="con">{{item.idCard}}</text>
+		</view>
+		<view class="block" wx:if="{{item.state != 0}}">
+			<text class="tit" space="emsp">其  他</text>
+			<text class="con">{{item.remarks ? item.remarks : '无'}}</text>
+		</view>
+	</view>
+	<view class="button" wx:if="{{item.state == 0}}" bindtap="cancel">取消预约</view>
+</view>

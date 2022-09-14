@@ -1,0 +1,18 @@
+
+<view wx:if="{{list.length == 0}}" class="not">
+	<image src="../../../image/not.png"></image>
+	<text>数据为空</text>
+</view>
+<view wx:if="{{list.length > 0}}">
+	<view  class="block" wx:for="{{list}}" wx:key="index" bindtap="uigo" data-id="{{item.id}}" data-type="{{item.type}}"
+	data-makeid="{{item.source}}">
+		<image class="avarat" src="{{item.type == '新消息' ? '../../../image/messages.png' : item.type == '预约成功' ? '../../../image/sus.png' : '../../../image/tui.png'}}"></image>
+		<view class="content">
+			<text class="title">{{item.title}}</text>
+			<text class="cont">{{item.content}}</text>
+		</view>
+		<view class="tw" wx:if="{{item.isread == 0}}"></view>
+			<text class="time">{{item.timeago}}</text>
+		
+	</view>
+</view>

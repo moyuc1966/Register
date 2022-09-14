@@ -1,0 +1,29 @@
+<!--pages/sign/sign.wxml-->
+<view class="content reg">
+	<view class="head">
+		<image src="{{avatar}}" bindtap="look"></image>
+		<text bindtap="modAvatar">{{isMod ? '提交' : '修改'}}</text>
+	</view>
+	<text class="hr">您的账号：</text>
+	<input model:value="{{username}}" type="text" disabled="true" placeholder="您的账号" placeholder-style="color:#ccc;font-size:13px;" style="color: #CCC;" maxlength="22"/>
+	<text class="hr">注册时间：</text>
+	<input model:value="注册于：{{createTime}}" style="color: #CCC;" type="text" disabled="true" placeholder="注册时间" placeholder-style="color:#ccc;font-size:13px;" maxlength="22"/>
+	<text class="hr">账号昵称：</text>
+	<input model:value="{{name}}" type="nickname" placeholder="您的账号昵称" placeholder-style="color:#ccc;font-size:13px;" maxlength="22"/>
+	<text class="hr">绑定手机号：</text>
+	<input model:value="{{phone}}" type="number" placeholder="所绑定手机号" placeholder-style="color:#ccc;font-size:13px;" maxlength="22"/>
+	<radio-group class="group" bindchange="radioChange">
+	<text>您的性别：</text>
+        <view class="label-2" wx:for="{{ageRadio}}" wx:key="index">
+          <radio color="#3478f7" id="{{item.name}}" value="{{item.name}}" checked="{{item.value == gender}}"></radio>
+          <label class="label-2-text" for="{{item.name}}"><text>{{item.name}}</text></label>
+        </view>
+      </radio-group>
+	  <text class="hr">绑定邮箱：</text>
+	<input model:value="{{emile}}" type="text" placeholder="账号所绑定邮箱" placeholder-style="color:#ccc;font-size:13px;" maxlength="22"/>
+	<text class="hr">年龄：</text>
+	<input model:value="{{age}}" type="number" placeholder="您的年龄" placeholder-style="color:#ccc;font-size:13px;" maxlength="22"/>
+	<view class="button" style="margin-top: 40px;" bindtap="register">提交修改</view>
+	<text class="and" bindtap="uigo">修改密码</text>
+</view>
+

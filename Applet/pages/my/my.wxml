@@ -1,0 +1,52 @@
+<view class="head">
+	<image  bindtap="sing" src="{{isLogin ? url + info.avatar : '../../image/boy.jpeg'}}" mode="scaleToFill"></image>
+	<view class="headRight">
+		<text  bindtap="sing" class="name">{{isLogin ? info.name : '登录/注册'}}</text>
+		<text  bindtap="sing" class="username" wx:if="!isLogin">{{info.username}}</text>
+		<!-- <text class="username" wx:if="isLogin">180933567999</text> -->
+	</view>
+	<view class="mess" bindtap="message">
+		<view class="msgNum" wx:if="{{msgNum > 0}}">{{msgNum}}</view>
+		<image src="../../image/u1795.svg" mode="scaleToFill"></image>
+	</view>
+</view>
+<view class="main">
+	<view class="gotop">
+		<view class="list" bindtap="patient">
+			<image mode="scaleToFill" class="listLeftImg" src="../../image/admin.png"></image>
+			<text>管理就诊人</text>
+			<image src="../../image/next.svg" mode="scaleToFill" class="listRightImg"></image>
+		</view>
+		<view class="list" bindtap="make">
+			<image mode="scaleToFill" class="listLeftImg" src="../../image/yugua.png"></image>
+			<text>预约挂号记录</text>
+			<image src="../../image/next.svg" mode="scaleToFill" class="listRightImg"></image>
+		</view>
+		<view class="list" bindtap="payOrder">
+			<image mode="scaleToFill" class="listLeftImg" src="../../image/jiao.png"></image>
+			<text>门诊缴费记录</text>
+			<image src="../../image/next.svg" mode="scaleToFill" class="listRightImg"></image>
+		</view>
+		<view class="list" bindtap="recorder">
+			<image mode="scaleToFill" class="listLeftImg" src="../../image/czad.png"></image>
+			<text>门诊充值记录</text>
+			<image src="../../image/next.svg" mode="scaleToFill" class="listRightImg"></image>
+		</view>
+		<view class="list" bindtap="refund">
+			<image mode="scaleToFill" class="listLeftImg" src="../../image/tuik.png"></image>
+			<text>余额退款记录</text>
+			<image src="../../image/next.svg" mode="scaleToFill" class="listRightImg"></image>
+		</view>
+		<view class="list" bindtap="feedback">
+			<image mode="scaleToFill" class="listLeftImg" src="../../image/fankui.png"></image>
+			<text>意见反馈</text>
+			<image src="../../image/next.svg" mode="scaleToFill" class="listRightImg"></image>
+		</view>
+		<view class="list" bindtap="out">
+			<image mode="scaleToFill" class="listLeftImg" src="../../image/out.png"></image>
+			<text>退出登录</text>
+			<image src="../../image/next.svg" mode="scaleToFill" class="listRightImg"></image>
+		</view>
+	</view>
+	<view style="width: 1;height: 50px;"></view>
+</view>
