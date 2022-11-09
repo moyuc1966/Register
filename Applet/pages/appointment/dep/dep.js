@@ -37,6 +37,7 @@ Page({
 					'Authorization': token
 				},
 				success: (res) => {
+					if(res.data.data.length == 0) return wx.hideLoading()
 					if (res.data.code == 200) {
 						resolve(res.data)
 					}else if(res.data.code == 403){
@@ -57,11 +58,13 @@ Page({
 				}
 			})
 		}).then(res=>{
+			
 			let arr = new Array(res.data.length).fill(false);
 			arr[0] = true;
 			this.setData({
 				hosList:res.data,
-				hosChoice:arr
+				hosChoice:arr,
+				hosName:res.data[0].name
 			})
 			return new Promise((resolve, reject)=>{
 				wx.request({

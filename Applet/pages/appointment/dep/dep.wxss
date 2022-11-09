@@ -45,7 +45,7 @@
 	font-weight: 300;
 }
 .not{
-	width: 60%;
+	width: 100%;
 	height: 300px;
 	margin-top: 30px;
 }

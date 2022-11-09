@@ -2,7 +2,7 @@
 	<view class="hos-box" wx:for="{{hosList}}" wx:key="index" style="background-color: {{hosChoice[index] ? '#006eff' : '#fff'}};color: {{hosChoice[index] ? '#fff' : '#333'}};" data-index="{{index}}" bindtap="hosChange">{{item.minname}}</view>
 </view>
 <view class="main">
-	<view class="left">
+	<view class="left" wx:if="{{hosList.length > 0 }}">
 		<view class="left-block" wx:for="{{depList}}" wx:key="index" style="background-color: {{depChoice[index] ? '#fff' : '#f6f6f7'}};color: {{depChoice[index] ? '#006eff' : '#333'}};" data-index="{{index}}" bindtap="depChange">{{item.name}}</view>
 		<view style="width: 1px;height: 40px;"></view>
 	</view>
