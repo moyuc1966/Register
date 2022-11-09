@@ -96,7 +96,7 @@ router.get('/patientList', (req, res) => {
         isdefault from patient where userId = ${req.auth.id} and isdefault == 1` ;
     }else{
         sql = `select id,name,relation,card,balance,concat(substring(certificate, 1, 4),'*****',substring(certificate, -4, 4)) as certificate,
-        isdefault from patient where userId = ${req.auth.id}`;
+        isdefault from patient where userId = ${req.auth.id} order by isdefault asc`;
     }
     
     db.query(sql, (err, data) => {

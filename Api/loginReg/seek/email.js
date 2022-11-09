@@ -5,8 +5,8 @@ const transporter = nodemailer.createTransport({
     port: 465,
     secure: true,
     auth: {
-        user: '发件邮箱',
-        pass: '邮箱密码'
+        user: 'lsgsj@vip.qq.com',
+        pass: 'ihufnjvjeeqjdgfd'
 
     }
 });

@@ -32,7 +32,7 @@ Page({
 		})
 		new Promise((resolve, reject)=>{
 			wx.request({
-				url: this.data.url + '/simple/getHospital',
+				url: this.data.url + '/simple/getHospital?switch=on',
 				header: {
 					'Authorization': token
 				},
@@ -65,7 +65,7 @@ Page({
 			})
 			return new Promise((resolve, reject)=>{
 				wx.request({
-					url: this.data.url +`/simple/getDepOne?hosId=${res.data[0].id}`,
+					url: this.data.url +`/simple/getDepOne?hosId=${res.data[0].id}&switch=on`,
 					header: {
 						'Authorization': token
 					},
@@ -90,7 +90,7 @@ Page({
 				depChoice:arr
 			})
 				wx.request({
-					url: this.data.url +`/simple/getDepTwo?depId=${res.data[0].id}`,
+					url: this.data.url +`/simple/getDepTwo?depId=${res.data[0].id}&switch=on`,
 					header: {
 						'Authorization': token
 					},
@@ -127,7 +127,7 @@ Page({
 		})
 		new Promise((resolve, reject)=>{
 			wx.request({
-				url: this.data.url +`/simple/getDepOne?hosId=${this.data.hosList[e.currentTarget.dataset.index].id}`,
+				url: this.data.url +`/simple/getDepOne?hosId=${this.data.hosList[e.currentTarget.dataset.index].id}&switch=on`,
 				header: {'Authorization': token},
 				success: (res) => {
 					if (res.data.code == 200) {
@@ -149,7 +149,7 @@ Page({
 				hosName:this.data.hosList[e.currentTarget.dataset.index].name
 			})
 			wx.request({
-				url: this.data.url + `/simple/getDepTwo?depId=${res.data[0].id}`,
+				url: this.data.url + `/simple/getDepTwo?depId=${res.data[0].id}&switch=on`,
 				header: {'Authorization': token},
 				success: (res) => {
 					wx.hideLoading()
@@ -184,7 +184,7 @@ Page({
 		  title: '加载中...',
 		})
 		wx.request({
-			url: this.data.url + `/simple/getDepTwo?depId=${this.data.depList[e.currentTarget.dataset.index].id}`,
+			url: this.data.url + `/simple/getDepTwo?depId=${this.data.depList[e.currentTarget.dataset.index].id}&switch=on`,
 			header: {'Authorization': token},
 			success: (res) => {
 				wx.hideLoading()

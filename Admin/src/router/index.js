@@ -17,6 +17,7 @@ const routes = [
             { path: '/Scheduling', component: () => import('../components/make/Scheduling.vue'), meta: { title: '医生排班-预约挂号管理中心' } },
             { path: '/set/setPass', component: () => import('../components/set/modPass.vue'), meta: { title: '信息修改-预约挂号管理中心' } },
             { path: '/set/addAdmin', component: () => import('../components/set/addAdmin.vue'), meta: { title: '添加管理员-预约挂号管理中心' } },
+            { path: '/set/administrators', component: () => import('../components/set/administrators.vue'), meta: { title: '管理员列表-预约挂号管理中心' } },
             { path: '/order/recorder', component: () => import('../components/order/recorder.vue'), meta: { title: '充值订单-预约挂号管理中心' } },
             { path: '/order/Detail', component: () => import('../components/order/det.vue'), meta: { title: '订单详情-预约挂号管理中心' } },
             { path: '/order/refund', component: () => import('../components/order/refund.vue'), meta: { title: '退款管理-预约挂号管理中心' } },

@@ -60,6 +60,8 @@ app.use('/arrange', require('./admin/arrange.js'))
 //用户医生排班部分
 app.use('/arrange', require('./user/userArrange.js'))
 
+//管理员数据
+app.use('/admin',require('./admin/administrators.js'))
 
 //统计数据
 app.use('/admin', require('./admin/Statistics.js'))

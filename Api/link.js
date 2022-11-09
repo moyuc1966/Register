@@ -1,9 +1,9 @@
 const mysql = require('mysql')
 const config = {
-    host: 'localhost', 
-    user: '账号',
-    password: '密码',
-    database: '库名',
+    host: 'localhost',
+    user: 'register',
+    password: 'bzjj55hcrtMh8AXM',
+    database: 'register',
     timezone:"SYSTEM"
 }
 let db = mysql.createConnection(config)

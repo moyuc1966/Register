@@ -1,4 +1,4 @@
-
+// pages/course/process/process.js
 Page({
 
 	/**

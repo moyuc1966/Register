@@ -29,7 +29,7 @@
             <!-- 表格 -->
             <el-table :row-style="{ height: '55px' }" id="out-table" :data="list" style="width: 100%" height="660"
                 :fit="true">
-                <el-table-column fixed prop="name" label="昵称" min-width="100" align="center">
+                <el-table-column fixed prop="name" label="昵称" min-width="110" align="center">
                 </el-table-column>
                 <el-table-column prop="photo" label="照片" min-width="60" align="center">
                     <template slot-scope="scope">
@@ -44,17 +44,17 @@
                 </el-table-column>
                 <el-table-column prop="username" label="账号" min-width="120" align="center">
                 </el-table-column>
-                <el-table-column prop="gender" label="性别" min-width="90" align="center">
+                <el-table-column prop="gender" label="性别" min-width="60" align="center">
                     <template slot-scope="scope">
                         {{ scope.row.gender == 1 ? '女' : '男' }}
                     </template>
                 </el-table-column>
-                <el-table-column prop="age" label="年龄" min-width="90" align="center">
+                <el-table-column prop="age" label="年龄" min-width="60" align="center">
                     <template slot-scope="scope">
                         {{ scope.row.age }}岁
                     </template>
                 </el-table-column>
-                <el-table-column prop="email" label="唯一邮箱" min-width="120" align="center">
+                <el-table-column prop="email" label="唯一邮箱" min-width="180" align="center">
                 </el-table-column>
                 <el-table-column prop="phone" label="手机号" min-width="120" align="center">
                 </el-table-column>
@@ -69,7 +69,7 @@
                         </el-switch>
                     </template>
                 </el-table-column>
-                <el-table-column fixed="right" label="操作" min-width="220" align="center">
+                <el-table-column fixed="right" label="操作" min-width="250" align="center">
                     <template slot-scope="scope">
                         <el-button size="mini" type="primary" plain @click="uigo(scope.row.id)">就诊人
                         </el-button>

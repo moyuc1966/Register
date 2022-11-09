@@ -34,6 +34,7 @@
 }
 .block .cont{
 	margin-left: 15px;
+	width: calc(100% - 100px);
 }
 .block .tit{
 	font-size: 15px;

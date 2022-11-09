@@ -3,7 +3,7 @@ App({
   onLaunch() {
   },
   globalData: {
-    $url : 'https://'         //此处是全局api地址配置，根路径，不携带/，记得删除此注释
+    $url : 'https://register.api.lsgsj.xyz'
   },
   notPermission:()=>{
 	wx.showModal({

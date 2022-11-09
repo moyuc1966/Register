@@ -31,15 +31,15 @@
                 :fit="true">
                 <el-table-column fixed prop="name" label="姓名" min-width="90" align="center">
                 </el-table-column>
-                <el-table-column prop="docType" label="证件类型" min-width="110" align="center">
+                <el-table-column prop="docType" label="证件类型" min-width="90" align="center">
                 </el-table-column>
-                <el-table-column prop="certificate" label="证件号" min-width="130" align="center">
+                <el-table-column prop="certificate" label="证件号" min-width="180" align="center">
                 </el-table-column>
                 <el-table-column prop="card" label="就诊卡号" min-width="120" align="center">
                 </el-table-column>
                 <el-table-column prop="phone" label="手机号" min-width="120" align="center">
                 </el-table-column>
-                <el-table-column prop="relation" label="关系" min-width="100" align="center">
+                <el-table-column prop="relation" label="关系" min-width="90" align="center">
                 </el-table-column>
                 <el-table-column prop="isdefault" label="状态" min-width="80" align="center"
                     :filters="[{ text: '默认', value: '1' }, { text: '非默认', value: '2' },]"

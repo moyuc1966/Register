@@ -38,6 +38,8 @@ CREATE TABLE `admin` (
   `grade` int(11) DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+
+INSERT into admin (name,username,password,grade) VALUES ('管理员','123456','E50DE14051AFD6AACD8D1560F2F08579','0');
 -- --------------------------------------------------------
 
 --

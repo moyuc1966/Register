@@ -6,9 +6,9 @@ import './plugins/element.js'
 import './assets/css/global.css'
 import axios from 'axios'
 
-Vue.prototype.apiUrl = 'https://'      //全局api地址，跟路径，不带/，例如https://baidu.com
+Vue.prototype.apiUrl = 'https://register.api.lsgsj.xyz'
 
-axios.defaults.baseURL = 'https://..../';   //拦截器地址配置，根路径，携带/
+axios.defaults.baseURL = 'https://register.api.lsgsj.xyz/';
 //请求拦截器
 axios.interceptors.request.use(function (config) {
     config.headers.Authorization = localStorage.getItem('adminToken');
@@ -19,13 +19,13 @@ axios.interceptors.request.use(function (config) {
 //响应拦截器
 axios.interceptors.response.use(function (res) {
     if (res.data.code == 403) {
-        this.$message.error("请前登录");
+        this.$message.error("请先登录");
         this.$router.push('/login');
     } else {
         return res
     }
 }, function (err) {
-    this.$message.error("请前登录");
+    this.$message.error("请先登录");
     this.$router.push('/login');
 })
 

@@ -23,4 +23,5 @@
 	<input model:value="{{phone}}" placeholder="方便我们联系您，可空" placeholder-style="color:#D7D7D7" maxlength="15"></input>
 </view>
 <view class="button" bindtap="post">提交</view>
+<text bindtap="his" class="his">意见反馈记录</text>
 <view style="width: 1;height: 50px;"></view>

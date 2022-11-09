@@ -99,7 +99,7 @@
                     </el-form-item>
                 </el-form>
                 <div slot="footer" class="dialog-footer">
-                    <el-button @click="utw = false">取 消</el-button>
+                    <el-button @click="addutw = false">取 消</el-button>
                     <el-button type="primary" @click="theadd">提交</el-button>
                 </div>
             </el-dialog>
@@ -166,11 +166,35 @@ export default {
                 depId: this.adddep[1],
                 address: this.addaddress
             }
+            const loading = this.$loading({
+                lock: true,
+                text: 'Loading',
+                spinner: 'el-icon-loading',
+                background: 'rgba(0, 0, 0, 0.7)',
+            })
             this.$http.post(`admin/dep/addDepTwo`, data).then(res => {
                 if (res.data.code == 200) {
                     this.$message.success('添加成功')
-                    this.getInfo()
-                    this.addutw = false
+                    // this.getInfo()
+                    // this.addutw = false
+
+                    this.$http.get(`simple/getDepTwo?paging=on&page=${this.currentPage}&limit=${this.pageSize}`).then(res => {
+                        loading.close()
+                        if (res.data.code == 200) {
+                            this.list = res.data.data;
+                            this.count = res.data.count;
+                            let arr = new Array(this.list.length)
+                            for (let i = 0; i < this.list.length; i++) {
+                                arr[i] = this.list[i].state ? true : false
+                            }
+                            this.sw = arr
+                            loading.close()
+                        } else {
+                            this.$message.error(res.data.msg)
+                        }
+                    })
+
+
                 } else {
                     this.$message.error(res.data.msg)
                 }

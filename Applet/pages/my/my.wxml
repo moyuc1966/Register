@@ -48,5 +48,5 @@
 			<image src="../../image/next.svg" mode="scaleToFill" class="listRightImg"></image>
 		</view>
 	</view>
-	<view style="width: 1;height: 50px;"></view>
+	<!-- <view style="width: 1;height: 50px; background-color: #f3f8ff;"></view> -->
 </view>

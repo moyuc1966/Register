@@ -94,6 +94,8 @@
                             <i class="el-icon-s-tools"></i>
                             <span>系统设置</span>
                         </template>
+                        <el-menu-item index="/set/administrators" @click="saveMenu('/set/administrators')">管理员列表
+                        </el-menu-item>
                         <el-menu-item index="/set/addAdmin" @click="saveMenu('/set/addAdmin')">添加管理员</el-menu-item>
                         <el-menu-item index="/set/setPass" @click="saveMenu('/set/setPass')">信息修改</el-menu-item>
                     </el-submenu>

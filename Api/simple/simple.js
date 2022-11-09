@@ -102,14 +102,15 @@ router.get('/getMessageNum',(req,res)=>{
 //获取科室--医院
 router.get('/getHospital', (req, res) => {
     let sql, sql2;
+    let switchinfo = req.query.switch == 'on' ? 'where state = 1' : ''
     if (req.query.paging == 'on') {
         let page = req.query.page || 1;
         let limit = req.query.limit || 10;
-        sql = `select * from depHospital LIMIT ${(page - 1) * limit} , ${limit};`
-        sql2 = `select count(*) as total from depHospital`
+        sql = `select * from depHospital LIMIT ${(page - 1) * limit} , ${limit}  ${switchinfo};`
+        sql2 = `select count(*) as total from depHospital ${switchinfo}`
     } else {
-        sql = `select * from depHospital`
-        sql2 = `select count(*) as total from depHospital`
+        sql = `select * from depHospital ${switchinfo}`
+        sql2 = `select count(*) as total from depHospital ${switchinfo}`
     }
     db.query(sql, (err, data) => {
         if (err) console.log(err)
@@ -132,18 +133,19 @@ router.get('/getDepOne', (req, res) => {
     let sql, sql2;
     let page = req.query.page || 1;
     let limit = req.query.limit || 10;
+    let switchinfo = req.query.switch == 'on' ? ' and state = 1' : ''
     if (req.query.paging == 'on' && !isEmptyStr(req.query.hosId)) {
-        sql = `select *,(select name from depHospital where id = hosId) as hosName from depOwn LIMIT ${(page - 1) * limit} , ${limit};`
-        sql2 = `select count(*) as total from depOwn`
+        sql = `select *,(select name from depHospital where id = hosId) as hosName from depOwn LIMIT ${(page - 1) * limit} , ${limit} ${switchinfo};`
+        sql2 = `select count(*) as total from depOwn where state = 1`
     } else if (req.query.paging == 'on' && isEmptyStr(req.query.hosId)) {
-        sql = `select *,(select name from depHospital where id = hosId) as hosName from depOwn where hosId = ${req.query.hosId} LIMIT ${(page - 1) * limit} , ${limit};`
-        sql2 = `select count(*) as total from depOwn where hosId = ${req.query.hosId}`
+        sql = `select *,(select name from depHospital where id = hosId) as hosName from depOwn where hosId = ${req.query.hosId} LIMIT ${(page - 1) * limit} , ${limit} ${switchinfo};`
+        sql2 = `select count(*) as total from depOwn where hosId = ${req.query.hosId} ${switchinfo}`
     } else if (req.query.paging != 'on' && isEmptyStr(req.query.hosId)) {
-        sql = `select *,(select name from depHospital where id = hosId) as hosName from depOwn where hosId = ${req.query.hosId}`
-        sql2 = `select count(*) as total from depOwn where hosId = ${req.query.hosId}`
+        sql = `select *,(select name from depHospital where id = hosId) as hosName from depOwn where hosId = ${req.query.hosId} ${switchinfo}`
+        sql2 = `select count(*) as total from depOwn where hosId = ${req.query.hosId} ${switchinfo}`
     } else {
-        sql = `select *,(select name from depHospital where id = hosId) as hosName from depOwn`
-        sql2 = `select count(*) as total from depOwn`
+        sql = `select *,(select name from depHospital where id = hosId) as hosName from depOwn where state = 1`
+        sql2 = `select count(*) as total from depOwn where state = 1`
     }
     db.query(sql, (err, data) => {
         if (err) return res.send(sqlErr)
@@ -165,18 +167,19 @@ router.get('/getDepTwo', (req, res) => {
     let sql, sql2;
     let page = req.query.page || 1;
     let limit = req.query.limit || 10;
+    let switchinfo = req.query.switch == 'on' ? ' where state = 1' : ''
     if (req.query.paging == 'on' && !isEmptyStr(req.query.depId)) {
-        sql = `select *,(select name from depHospital where id = hosId) as hosName,(select name from depOwn where id = depId) as depName from depInclude LIMIT ${(page - 1) * limit} , ${limit};`
-        sql2 = `select count(*) as total from depInclude`
+        sql = `select *,(select name from depHospital where id = hosId) as hosName,(select name from depOwn where id = depId) as depName from depInclude LIMIT ${(page - 1) * limit} , ${limit} ${switchinfo};`
+        sql2 = `select count(*) as total from depInclude ${switchinfo}`
     } else if (req.query.paging == 'on' && isEmptyStr(req.query.depId)) {
-        sql = `select *,(select name from depHospital where id = hosId) as hosName,(select name from depOwn where id = depId) as depName from depInclude where depId = ${req.query.depId} LIMIT ${(page - 1) * limit} , ${limit};`
-        sql2 = `select count(*) as total from depInclude where depId = ${req.query.depId}`
+        sql = `select *,(select name from depHospital where id = hosId) as hosName,(select name from depOwn where id = depId) as depName from depInclude where depId = ${req.query.depId} LIMIT ${(page - 1) * limit} , ${limit} and state = 1;`
+        sql2 = `select count(*) as total from depInclude where depId = ${req.query.depId} and state = 1`
     } else if (req.query.paging != 'on' && isEmptyStr(req.query.depId)) {
-        sql = `select *,(select name from depHospital where id = hosId) as hosName,(select name from depOwn where id = depId) as depName from depInclude where depId = ${req.query.depId}`
-        sql2 = `select count(*) as total from depInclude where depId = ${req.query.depId}`
+        sql = `select *,(select name from depHospital where id = hosId) as hosName,(select name from depOwn where id = depId) as depName from depInclude where depId = ${req.query.depId} and state = 1`
+        sql2 = `select count(*) as total from depInclude where depId = ${req.query.depId} and state = 1`
     } else {
-        sql = `select *,(select name from depHospital where id = hosId) as hosName,(select name from depOwn where id = depId) as depName from depInclude`
-        sql2 = `select count(*) as total from depInclude`
+        sql = `select *,(select name from depHospital where id = hosId) as hosName,(select name from depOwn where id = depId) as depName from depInclude ${switchinfo}`
+        sql2 = `select count(*) as total from depInclude ${switchinfo}`
     }
     db.query(sql, (err, data) => {
          if (err) console.log(err)
@@ -199,18 +202,19 @@ router.get('/getDoctor', (req, res) => {
     let sql, sql2;
     let page = req.query.page || 1;
     let limit = req.query.limit || 10;
+    let switchinfo = req.query.switch == 'on' ? ' where state = 0' : ''
     if (req.query.paging == 'on' && !isEmptyStr(req.query.depTwoId)) {
-        sql = `select *,(select name from depHospital where id = hosId) as hosName,(select name from depInclude where id = depTwoId) as depName from doctor LIMIT ${(page - 1) * limit} , ${limit};`
-        sql2 = `select count(*) as total from doctor`
+        sql = `select *,(select name from depHospital where id = hosId) as hosName,(select name from depInclude where id = depTwoId) as depName from doctor LIMIT ${(page - 1) * limit} , ${limit} ${switchinfo};`
+        sql2 = `select count(*) as total from doctor ${switchinfo}`
     } else if (req.query.paging == 'on' && isEmptyStr(req.query.depTwoId)) {
-        sql = `select *,(select name from depHospital where id = hosId) as hosName,(select name from depInclude where id = depTwoId) as depName from doctor where depTwoId = ${req.query.depTwoId} LIMIT ${(page - 1) * limit} , ${limit};`
-        sql2 = `select count(*) as total from doctor where depTwoId = ${req.query.depTwoId}`
+        sql = `select *,(select name from depHospital where id = hosId) as hosName,(select name from depInclude where id = depTwoId) as depName from doctor where depTwoId = ${req.query.depTwoId} LIMIT ${(page - 1) * limit} , ${limit} and state = 1;`
+        sql2 = `select count(*) as total from doctor where depTwoId = ${req.query.depTwoId} and state = 1`
     } else if (req.query.paging != 'on' && isEmptyStr(req.query.depTwoId)) {
-        sql = `select *,(select name from depHospital where id = hosId) as hosName,(select name from depInclude where id = depTwoId) as depName from doctor where depTwoId = ${req.query.depTwoId}`
-        sql2 = `select count(*) as total from doctor where depTwoId = ${req.query.depTwoId}`
+        sql = `select *,(select name from depHospital where id = hosId) as hosName,(select name from depInclude where id = depTwoId) as depName from doctor where depTwoId = ${req.query.depTwoId} and state = 1`
+        sql2 = `select count(*) as total from doctor where depTwoId = ${req.query.depTwoId} and state = 1`
     } else {
-        sql = `select *,(select name from depHospital where id = hosId) as hosName,(select name from depInclude where id = depTwoId) as depName from doctor`
-        sql2 = `select count(*) as total from doctor`
+        sql = `select *,(select name from depHospital where id = hosId) as hosName,(select name from depInclude where id = depTwoId) as depName from doctor ${switchinfo}`
+        sql2 = `select count(*) as total from doctor ${switchinfo}`
     }
     db.query(sql, (err, data) => {
         if(err) console.log(err)

@@ -646,7 +646,9 @@ export default {
                 Mstate,
                 AtimeSegment,
                 MtimeSegment,
-                time: this.addobj.time
+                time: this.addobj.time,
+                Anum: this.addobj.Anum,
+                Mnum: this.addobj.Mnum,
             }
             this.addUtw = false;
             const loading = this.$loading({
@@ -674,12 +676,26 @@ export default {
             })
         },
         setMod() {
+            let infotime = (date) => {
+                let a = date.split('-')
+                a[0] = new Date(this.list[this.setIndex]['time' + (this.bindIndex + 1)] + ' ' + (a[0].split('.'))[0] + ':' + a[0].split('.')[1] + ':00')
+                a[1] = new Date(this.list[this.setIndex]['time' + (this.bindIndex + 1)] + ' ' + (a[1].split('.'))[0] + ':' + a[1].split('.')[1] + ':00')
+                return a;
+            }
             this.modobj = {
                 time: this.list[this.setIndex]['time' + (this.bindIndex + 1)],
                 Mstate: this.isfalse(this.list[this.setIndex]['Mstate' + (this.bindIndex + 1)]) ? false : true,
                 Astate: this.isfalse(this.list[this.setIndex]['Astate' + (this.bindIndex + 1)]) ? false : true,
-                MtimeSegment: '',
-                AtimeSegment: '',
+                MtimeSegment: this.list[this.setIndex]['MtimeSegment' + (this.bindIndex + 1)] == '' ||
+                    this.list[this.setIndex]['MtimeSegment' + (this.bindIndex + 1)] == null ||
+                    this.list[this.setIndex]['MtimeSegment' + (this.bindIndex + 1)] == '休息'
+                    ? ''
+                    : infotime(this.list[this.setIndex]['MtimeSegment' + (this.bindIndex + 1)]),
+                AtimeSegment: this.list[this.setIndex]['AtimeSegment' + (this.bindIndex + 1)] == '' ||
+                    this.list[this.setIndex]['AtimeSegment' + (this.bindIndex + 1)] == null ||
+                    this.list[this.setIndex]['AtimeSegment' + (this.bindIndex + 1)] == '休息'
+                    ? ''
+                    : infotime(this.list[this.setIndex]['AtimeSegment' + (this.bindIndex + 1)]),
                 Mnum: this.list[this.setIndex]['Mnum' + (this.bindIndex + 1)] == '休息' ? 0 : this.list[this.setIndex]['Mnum' + (this.bindIndex + 1)],
                 Anum: this.list[this.setIndex]['Anum' + (this.bindIndex + 1)] == '休息' ? 0 : this.list[this.setIndex]['Anum' + (this.bindIndex + 1)],
             }
@@ -720,10 +736,18 @@ export default {
                 MtimeSegment,
                 Anum: this.modobj.Anum,
                 Mnum: this.modobj.Mnum,
-                Asurplus: this.list[this.setIndex]['Asurplus' + (this.bindIndex + 1)] == '休息' ? 0 : this.list[this.setIndex]['Asurplus' + (this.bindIndex + 1)],
-                Msurplus: this.list[this.setIndex]['Msurplus' + (this.bindIndex + 1)] == '休息' ? 0 : this.list[this.setIndex]['Msurplus' + (this.bindIndex + 1)],
+                //剩余数量逻辑计算错误，数量减少时无法计算
+                Asurplus: this.list[this.setIndex]['Asurplus' + (this.bindIndex + 1)] == '休息' ? 0 :
+                    this.list[this.setIndex]['Asurplus' + (this.bindIndex + 1)]
+                        >= this.modobj.Anum
+                        ? this.modobj.Anum
+                        : this.modobj.Anum - (this.list[this.setIndex]['Anum' + (this.bindIndex + 1)] - this.list[this.setIndex]['Asurplus' + (this.bindIndex + 1)]),
+                Msurplus: this.list[this.setIndex]['Msurplus' + (this.bindIndex + 1)] == '休息' ? 0 :
+                    this.list[this.setIndex]['Msurplus' + (this.bindIndex + 1)]
+                        >= this.modobj.Mnum
+                        ? this.modobj.Mnum
+                        : this.modobj.Mnum - (this.list[this.setIndex]['Mnum' + (this.bindIndex + 1)] - this.list[this.setIndex]['Msurplus' + (this.bindIndex + 1)]),
             }
-
 
             const loading = this.$loading({
                 lock: true,
