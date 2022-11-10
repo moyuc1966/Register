@@ -16,13 +16,13 @@
 }
 .block{
 	width: 100%;
-	padding: 10px;
+	/* padding: 10px; */
 	box-sizing: border-box;
 	border-bottom: 1px solid #eee;
-	padding-bottom: 17px;
+	padding-bottom: 14px;
 	position: relative;
 	display: flex;
-	margin: 15px 0;
+	margin: 11px 0;
 	padding-left: 15px;
 }
 .tw{
@@ -41,14 +41,14 @@
 }
 .content{
 	width: calc(100% - 80px);
-	margin-left: 15px;
+	margin-left: 10px;
 }
 .title{
 	width: 100%;
 	display: block;
 	font-size: 16px;
 	color: #000;
-	margin-bottom: 8px;
+	margin-bottom: 5px;
 	overflow: hidden;
     -webkit-line-clamp: 1;
     text-overflow: ellipsis;
@@ -62,11 +62,12 @@
     display: -webkit-box;
 	-webkit-box-orient: vertical;
 	font-size: 13px;
-	color: #979696;
+	color: #aaa;
 	line-height: 20px;
+	font-weight: 300;
 }
 .time{
 	font-size: 10px;
 	color: rgb(146, 146, 146);
-	position: absolute;right: 15px;top: 9px;
+	position: absolute;right: 15px;top: 4px;
 }

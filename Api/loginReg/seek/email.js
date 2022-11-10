@@ -5,8 +5,8 @@ const transporter = nodemailer.createTransport({
     port: 465,
     secure: true,
     auth: {
-        user: 'lsgsj@vip.qq.com',
-        pass: 'ihufnjvjeeqjdgfd'
+        user: '发件邮箱',
+        pass: '邮箱密码（授权码）'
 
     }
 });
@@ -70,7 +70,7 @@ async function email(qq, code, data) {
 </body>
     `
     const mailInfo = {
-        from: 'lsgsj@vip.qq.com',
+        from: '发件邮箱',
         to: qq,
         subject: '预约挂号小程序密码找回',
         text: `尊敬的用户${data[0].name}:  您好，您正在对账号${data[0].username}进行找回密码的操作，验证码为${code}，请在10分钟内完成密码重置操作`,

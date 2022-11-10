@@ -153,7 +153,7 @@ router.get('/userRefundList', (req, res) => {
     }
     db.query(sql, (err, data) => {
         if (err) return res.send(sqlErr);
-        if (data.length == 0) return tw(res, 204, '您还没有退款订单');
+        if (data.length == 0) return tw(res, 200, '您还没有退款订单');
         return res.send({ code: 200, msg: '获取成功', data: data });
     })
 })
@@ -230,7 +230,7 @@ router.get('/userPayOrder', (req, res) => {
     }
     db.query(sql, (err, data) => {
         if (err) return res.send(sqlErr);
-        if (data.length == 0) return tw(res, 204, '还没有缴费订单');
+        if (data.length == 0) return tw(res, 200, '还没有缴费订单');
         return res.send({ code: 200, msg: '获取成功', data: data });
     })
 });

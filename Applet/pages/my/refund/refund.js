@@ -38,7 +38,7 @@ Page({
 						balance:Number(res.data.data[0].balance).toFixed(2)
 					})
 					wx.request({
-						url: this.data.url + `/admin/refundOrderList?patId=${res.data.data[0].id}`,
+						url: this.data.url + `/order/userRefundList?patId=${res.data.data[0].id}`,
 						header: {
 						  'Authorization': token
 						 },
@@ -110,7 +110,7 @@ Page({
 		})
 		let token = wx.getStorageSync('token')
 		wx.request({
-			url: this.data.url + `/admin/refundOrderList?patId=${this.data.patList[e.detail.value].id}`,
+			url: this.data.url + `/order/userRefundList?patId=${this.data.patList[e.detail.value].id}`,
 			header: {
 			  'Authorization': token
 			 },

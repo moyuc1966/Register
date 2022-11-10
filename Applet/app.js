@@ -3,7 +3,7 @@ App({
   onLaunch() {
   },
   globalData: {
-    $url : 'https://register.api.lsgsj.xyz'
+    $url : 'https://.......'
   },
   notPermission:()=>{
 	wx.showModal({

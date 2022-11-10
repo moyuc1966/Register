@@ -2,7 +2,8 @@
 	<image  bindtap="sing" src="{{isLogin ? url + info.avatar : '../../image/boy.jpeg'}}" mode="scaleToFill"></image>
 	<view class="headRight">
 		<text  bindtap="sing" class="name">{{isLogin ? info.name : '登录/注册'}}</text>
-		<text  bindtap="sing" class="username" wx:if="!isLogin">{{info.username}}</text>
+		<!-- <text  bindtap="sing" class="username" wx:if="isLogin">账号：{{info.username}}</text> -->
+		<text  bindtap="sing" class="username">{{isLogin ? '账号：'+info.username : ''}}</text>
 		<!-- <text class="username" wx:if="isLogin">180933567999</text> -->
 	</view>
 	<view class="mess" bindtap="message">

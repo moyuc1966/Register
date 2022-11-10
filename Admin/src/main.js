@@ -6,9 +6,9 @@ import './plugins/element.js'
 import './assets/css/global.css'
 import axios from 'axios'
 
-Vue.prototype.apiUrl = 'https://register.api.lsgsj.xyz'
+Vue.prototype.apiUrl = 'https://......'
 
-axios.defaults.baseURL = 'https://register.api.lsgsj.xyz/';
+axios.defaults.baseURL = 'https://......../';
 //请求拦截器
 axios.interceptors.request.use(function (config) {
     config.headers.Authorization = localStorage.getItem('adminToken');

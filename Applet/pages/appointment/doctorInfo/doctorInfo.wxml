@@ -25,4 +25,8 @@
 		<text class="brief">{{item.brief}}</text>
 	</view>
 </view>
+<view wx:if="{{doctorList.length == 0}}" class="not">
+		<image src="../../../image/not.png"></image>
+		<text>暂无数据</text>
+	</view>
 <view style="width: 1;height: 35px;"></view>

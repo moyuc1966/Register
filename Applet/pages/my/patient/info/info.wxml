@@ -33,7 +33,7 @@
 	<text class="tit">居住地址</text>
 	<textarea bindinput="onChange" data-key="address" model:value="{{info.address}}"  placeholder="选填" 	placeholder-style="color:#D7D7D7;font-weight:100;" maxlength="100"></textarea>
 </view>
-<view class="block">
+<view class="block" wx:if="{{id == 0}}">
 	<text class="tit long">设为默认就诊人</text>
 	<switch checked="{{info.isdefault == 1}}" color="#006eff" style='zoom:.7;' bindchange="changeValue" ></switch>
 </view>

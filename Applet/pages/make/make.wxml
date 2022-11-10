@@ -21,7 +21,7 @@
 	</view>
 	<view class="tap">
 		<view class="tapLeft"></view>
-		<text>预约记录</text>
+		<text>{{type == 'index' ? '正在预约中' : '预约记录'}}</text>
 	</view>
 	<view wx:if="{{orderList.length == 0}}" class="not">
 		<image src="../../image/not.png"></image>

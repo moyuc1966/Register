@@ -5,8 +5,8 @@
 	</view>
 <view class="main" wx:else>
 	<view class="top">请选择就诊人</view>
-	<view class="pat" wx:for="{{patList}}" wx:key="index">
-		<view  data-id="{{item.id}}" bindtap="uigo" data-name="{{item.name}}">
+	<view class="pat" wx:for="{{patList}}" wx:key="index" data-id="{{item.id}}" bindtap="uigo" data-name="{{item.name}}">
+		<view >
 			<view class="patCont">
 				<text class="name">{{item.name}}</text>
 				<text class="relation">{{item.relation}}</text>

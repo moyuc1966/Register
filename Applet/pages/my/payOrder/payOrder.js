@@ -12,7 +12,8 @@ Page({
 		name:'',
 		relation:'',
 		certificate:'',
-		type:'my'
+		type:'my',
+		ind:0
 	},
 
 	/**
@@ -110,6 +111,7 @@ Page({
 			name:this.data.patList[e.detail.value].name,
 			relation:this.data.patList[e.detail.value].relation,
 			certificate:this.data.patList[e.detail.value].certificate,
+			ind:e.detail.value
 		})
 		let token = wx.getStorageSync('token')
 		let url =  this.data.url + `/order/userPayOrder?patId=${this.data.patList[e.detail.value].id}`;
@@ -156,6 +158,34 @@ Page({
 	 * 生命周期函数--监听页面显示
 	 */
 	onShow() {
+		if(this.data.patList.length == 0) return true;
+		let token = wx.getStorageSync('token')
+		let url =  this.data.url + `/order/userPayOrder?patId=${this.data.patList[this.data.ind].id}`;
+		if(this.data.type == 'index') url =  this.data.url + `/order/userPayOrder?patId=${this.data.patList[this.data.ind].id}&state=0`
+		wx.request({
+			url: url,
+			header: {
+			  'Authorization': token
+			 },
+			 success:(res)=>{
+				 wx.hideLoading()
+				  if(res.data.code == 200){
+					  this.setData({
+						  orderList:res.data.data
+					  })
+					}else if(res.data.code == 204){
+						this.setData({
+							orderList:[]
+						})
+				  }else{
+					  console.log(res.data)
+					  wx.showToast({
+						title: res.data.msg,
+						icon:'error'
+					  })
+				  }
+			 }
+		  })
 	},
 
 	/**

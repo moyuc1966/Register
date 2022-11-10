@@ -221,6 +221,7 @@ function formatDate(time) {
 }
 //完成预约
 router.put('/endMake', (req, res) => {
+    var userid;
     let sql = `select id from admin where id = ${req.auth.id} and username = '${req.auth.username}'`
     db.query(sql, (err, data) => {
         if (err) return res.send(sqlErr);
@@ -230,6 +231,7 @@ router.put('/endMake', (req, res) => {
             if (!isEmptyStr(req.body.id)) return tw(res, 400, '参数错误')
             let sql = `select p.balance,m.state,m.price,m.patId,m.userId,m.depName,m.name,m.card from make m,patient p where m.id = ${req.body.id} and p.id = m.patId;`;
             db.query(sql, (err, data) => {
+                var userid = data[0].userId
                 if (err) return res.send(sqlErr)
                 if (data[0].state != 0) return tw(res, 400, '此订单不可处理');
                 if (data[0].balance < data[0].price) {
@@ -251,7 +253,20 @@ router.put('/endMake', (req, res) => {
                                 db.query(sql, (err, data3) => {
                                     if (err) return res.send(sqlErr);
                                     if (data3.affectedRows == 0) return tw(res, 204, '已完成，缴费订单创建失败')
-                                    res.send({ code: 202, msg: '已完成，余额不足，以创建缴费订单' })
+                                    // res.send({ code: 202, msg: '已完成，余额不足，以创建缴费订单' })
+                                    let time = formatDate(new Date().getTime());
+                                    let sql = `insert into message (userId, title, content, time,source,type,isread) values 
+                                    (${userid}, '请及时缴费', '您有一个预约挂号已完成，因余额不足自动扣费失败，已自动创建缴费订单${theOrderId}，请及时充值并且在缴费页面完成缴费', '${time}','系统通知','新消息',0)`;
+                                    db.query(sql, (err, data) => {
+                                        if(err) console.log(err)
+                                        if (err) return res.send(sqlErr)
+                                        if (data.affectedRows == 1) {
+                                            res.send({ code: 202, msg: '已完成，余额不足，以创建缴费订单' })
+                                        } else {
+                                            tw(res, 204, '用户消息发送失败');
+                                        }
+                                    })
+                                    
                                 })
                         })
                         
@@ -261,7 +276,19 @@ router.put('/endMake', (req, res) => {
                     db.query(sql, (err, data) => {
                         if (err) return res.send(sqlErr);
                         if (data.affectedRows == 0) return tw(res, 400, '操作失败')
-                        else tw(res, 200, '已完成，扣款成功')
+                        // else tw(res, 200, '已完成，扣款成功')
+                        let time = formatDate(new Date().getTime());
+                        let sql = `insert into message (userId, title, content, time,source,type,isread) values 
+                        (${userid}, '预约挂号已完成', '您有一个预约挂号已完成，已自动扣款，如有异议请及时反馈处理', '${time}','系统通知','新消息',0)`;
+                        db.query(sql, (err, data) => {
+                            if(err) console.log(err)
+                            if (err) return res.send(sqlErr)
+                            if (data.affectedRows == 1) {
+                                tw(res, 200, '已完成，扣款成功')
+                            } else {
+                                tw(res, 204, '用户消息发送失败');
+                            }
+                        })
                     })
                 }
             })

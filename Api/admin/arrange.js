@@ -166,32 +166,24 @@ router.delete('/admin/del', (req, res) => {
 
 //获取某医生一周内排班
 router.get('/admin/weekArrange', (req, res) => {
-    let sql = `select id from admin where id = ${req.auth.id} and username = '${req.auth.username}'`
+    if (!isEmptyStr(req.query.doctorId)) return tw(res, 400, '参数不完整');
+    let dateArr = []
+    if (req.query.week == 0) {
+        dateArr = dateTool.PrevWeek()
+    } else if (req.query.week == 2) {
+        dateArr = dateTool.NextWeek()
+    } else {
+        dateArr = dateTool.CurrWeek()
+    }
+    let sql = `call getArrangeById('${dateArr[0]}',${req.query.doctorId});`
     db.query(sql, (err, data) => {
         if (err) return res.send(sqlErr);
-        if (data.length == 0) {
-            tw(res, 403, '您没有权限')
-        } else {
-            if (!isEmptyStr(req.query.doctorId)) return tw(res, 400, '参数不完整');
-            let dateArr = []
-            if (req.query.week == 0) {
-                dateArr = dateTool.PrevWeek()
-            } else if (req.query.week == 2) {
-                dateArr = dateTool.NextWeek()
-            } else {
-                dateArr = dateTool.CurrWeek()
-            }
-            let sql = `call getArrangeById('${dateArr[0]}',${req.query.doctorId});`
-            db.query(sql, (err, data) => {
-                if (err) return res.send(sqlErr);
-                let result = {
-                    code: 200,
-                    msg: '获取成功',
-                    data: data[0]
-                }
-                res.send(result)
-            })
+        let result = {
+            code: 200,
+            msg: '获取成功',
+            data: data[0]
         }
+        res.send(result)
     })
 })
 

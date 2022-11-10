@@ -59,7 +59,7 @@ router.get('/fromDoctor', (req, res) => {
 //获取此科室医生推荐
 router.get('/redDoctor', (req, res) => {
     if (!isEmptyStr(req.query.doctorId) || !isEmptyStr(req.query.depTwoId)) return tw(res, 400, '参数不完整');
-    let sql = `select * from doctor where id in (select doctorId from arrange where depTwoId = ${req.query.depTwoId} and (if(Mstate = Astate and Mstate = 1,false,true))) and state != 0 and id != ${req.query.doctorId} LIMIT 0,5 `;
+    let sql = `select * from doctor where id in (select doctorId from arrange where depTwoId = ${req.query.depTwoId} and (if(Mstate = Astate and Mstate = 1,false,true))and if(( DATE_SUB(CURDATE(), INTERVAL 7 DAY) <= date(time) = 1 ),true,false)) and state != 0 and id !=  ${req.query.doctorId} LIMIT 0,5`
     db.query(sql, (err, data) => {
         if (err) return res.send(sqlErr);
         res.send({ code: 200, msg: "获取成功", data });

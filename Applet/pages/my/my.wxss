@@ -34,8 +34,8 @@
 
 }
 .headRight{
-	margin-left: 15px;
-	height: 60px;
+	margin-left: 10px;
+	height: 50px;
 	display:flex;
 	flex-wrap: wrap;
 	align-items: center;
