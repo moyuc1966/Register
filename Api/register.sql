@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主机： localhost
--- 生成日期： 2022-08-18 16:36:39
+-- 生成日期： 2022-11-10 17:19:49
 -- 服务器版本： 5.6.50-log
--- PHP 版本： 5.6.40
+-- PHP 版本： 7.2.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -16,7 +16,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- 数据库： `register`
@@ -38,8 +38,13 @@ CREATE TABLE `admin` (
   `grade` int(11) DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- 转存表中的数据 `admin`
+--
 
-INSERT into admin (name,username,password,grade) VALUES ('管理员','123456','E50DE14051AFD6AACD8D1560F2F08579','0');
+INSERT INTO `admin` (`id`, `name`, `username`, `password`, `gender`, `email`, `grade`) VALUES
+(1, '超级管理员', '123456', 'E50DE14051AFD6AACD8D1560F2F08579', 1, NULL, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -524,7 +529,7 @@ ALTER TABLE `users`
 -- 使用表AUTO_INCREMENT `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- 使用表AUTO_INCREMENT `arrange`

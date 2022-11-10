@@ -59,7 +59,7 @@ router.post('/patientAdd', check, (req, res) => {
                 if (data.length > 0) {
                     tw(res, 400, '该就诊人已存在');
                 } else {
-                    let sql = `select count(*) as def from patient where userId = userId = ${req.auth.id} and isdefault = 1`
+                    let sql = `select count(*) as def from patient where userId = ${req.auth.id} and isdefault = 1`
                     db.query(sql, (err, data) => {
                         if(err) console.log(err)
                         if (err) return res.send(sqlErr);
@@ -163,11 +163,7 @@ router.put('/patientMod', (req, res) => {
             card = '${card}',relation = '${relation}',phone = '${phone}',address = '${address}' where id = ${req.body.id}`;
             db.query(sql, (err, data) => {
                 if (err) return res.send(sqlErr);
-                if (data.affectedRows == 1) {
-                    tw(res, 200, '修改成功');
-                } else {
-                    tw(res, 400, '修改失败');
-                }
+                tw(res, 200, '修改成功');
             })
         })
     }
@@ -188,11 +184,7 @@ router.post('/patientModDef', (req, res) => {
                 let sql = `call patDefMod(${req.auth.id},${req.body.id})`;
                 db.query(sql, (err, data) => {
                     if (err) return res.send(sqlErr)
-                    if (data.affectedRows >= 1) {
-                        tw(res, 200, '修改成功')
-                    } else {
-                        tw(res, 400, '修改失败')
-                    }
+                     tw(res, 200, '修改成功')
                 })
             }
         })
