@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主机： localhost
--- 生成日期： 2022-11-10 17:19:49
+-- 生成日期： 2022-11-10 17:29:58
 -- 服务器版本： 5.6.50-log
 -- PHP 版本： 7.2.33
 
@@ -21,6 +21,180 @@ SET time_zone = "+00:00";
 --
 -- 数据库： `register`
 --
+
+DELIMITER $$
+--
+-- 存储过程
+--
+CREATE DEFINER=`register`@`localhost` PROCEDURE `getArrange` (IN `Intime` DATE, IN `Inpage` INT, IN `Inlimit` INT)  begin
+select 
+     a.id,a.doctorName,a.doctorId,a.hosName,a.hosId,a.depName,
+    (select id from arrange where time = date_add(Intime,interval 0 day) and doctorId = a.doctorId) as id1,
+	(select time from arrange where time = date_add(Intime,interval 0 day) and doctorId = a.doctorId) as time1,
+	(select if(Mstate = 1,'休息',MtimeSegment) from arrange where time = date_add(Intime,interval 0 day) and doctorId = a.doctorId) as MtimeSegment1,
+	(select if(Mstate = 1,'休息',Mnum) from arrange where time = date_add(Intime,interval 0 day) and doctorId = a.doctorId) as Mnum1,
+	(select if(Mstate = 1,'休息',Msurplus) from arrange where time = date_add(Intime,interval 0 day) and doctorId = a.doctorId) as Msurplus1,
+	(select Mstate from arrange where time = date_add(Intime,interval 0 day) and doctorId = a.doctorId) as Mstate1,
+	(select if(Astate = 1,'休息',AtimeSegment) from arrange where time = date_add(Intime,interval 0 day) and doctorId = a.doctorId) as AtimeSegment1,
+	(select if(Astate = 1,'休息',Anum) from arrange where time = date_add(Intime,interval 0 day) and doctorId = a.doctorId) as Anum1,
+	(select if(Astate = 1,'休息',Asurplus) from arrange where time = date_add(Intime,interval 0 day) and doctorId = a.doctorId) as Asurplus1,
+	(select Astate from arrange where time = date_add(Intime,interval 0 day) and doctorId = a.doctorId) as Astate1,
+    (select id from arrange where time = date_add(Intime,interval 1 day) and doctorId = a.doctorId) as id2,
+    (select time from arrange where time = date_add(Intime,interval 1 day) and doctorId = a.doctorId) as time2,
+	(select if(Mstate = 1,'休息',MtimeSegment) from arrange where time = date_add(Intime,interval 1 day) and doctorId = a.doctorId) as MtimeSegment2,
+	(select if(Mstate = 1,'休息',Mnum) from arrange where time = date_add(Intime,interval 1 day) and doctorId = a.doctorId) as Mnum2,
+	(select if(Mstate = 1,'休息',Msurplus) from arrange where time = date_add(Intime,interval 1 day) and doctorId = a.doctorId) as Msurplus2,
+	(select Mstate from arrange where time = date_add(Intime,interval 1 day) and doctorId = a.doctorId) as Mstate2,
+	(select if(Astate = 1,'休息',AtimeSegment) from arrange where time = date_add(Intime,interval 1 day) and doctorId = a.doctorId) as AtimeSegment2,
+	(select if(Astate = 1,'休息',Anum) from arrange where time = date_add(Intime,interval 1 day) and doctorId = a.doctorId) as Anum2,
+	(select if(Astate = 1,'休息',Asurplus) from arrange where time = date_add(Intime,interval 1 day) and doctorId = a.doctorId) as Asurplus2,
+	(select Astate from arrange where time = date_add(Intime,interval 1 day) and doctorId = a.doctorId) as Astate2,
+    (select id from arrange where time = date_add(Intime,interval 2 day) and doctorId = a.doctorId) as id3,
+    (select time from arrange where time = date_add(Intime,interval 2 day) and doctorId = a.doctorId) as time3,
+	(select if(Mstate = 1,'休息',MtimeSegment) from arrange where time = date_add(Intime,interval 2 day) and doctorId = a.doctorId) as MtimeSegment3,
+	(select if(Mstate = 1,'休息',Mnum) from arrange where time = date_add(Intime,interval 2 day) and doctorId = a.doctorId) as Mnum3,
+	(select if(Mstate = 1,'休息',Msurplus) from arrange where time = date_add(Intime,interval 2 day) and doctorId = a.doctorId) as Msurplus3,
+	(select Mstate from arrange where time = date_add(Intime,interval 2 day) and doctorId = a.doctorId) as Mstate3,
+	(select if(Astate = 1,'休息',AtimeSegment) from arrange where time = date_add(Intime,interval 2 day) and doctorId = a.doctorId) as AtimeSegment3,
+	(select if(Astate = 1,'休息',Anum) from arrange where time = date_add(Intime,interval 2 day) and doctorId = a.doctorId) as Anum3,
+	(select if(Astate = 1,'休息',Asurplus) from arrange where time = date_add(Intime,interval 2 day) and doctorId = a.doctorId) as Asurplus3,
+	(select Astate from arrange where time = date_add(Intime,interval 2 day) and doctorId = a.doctorId) as Astate3,
+    (select id from arrange where time = date_add(Intime,interval 3 day) and doctorId = a.doctorId) as id4,
+    (select time from arrange where time = date_add(Intime,interval 3 day) and doctorId = a.doctorId) as time4,
+	(select if(Mstate = 1,'休息',MtimeSegment) from arrange where time = date_add(Intime,interval 3 day) and doctorId = a.doctorId) as MtimeSegment4,
+	(select if(Mstate = 1,'休息',Mnum) from arrange where time = date_add(Intime,interval 3 day) and doctorId = a.doctorId) as Mnum4,
+	(select if(Mstate = 1,'休息',Msurplus) from arrange where time = date_add(Intime,interval 3 day) and doctorId = a.doctorId) as Msurplus4,
+	(select Mstate from arrange where time = date_add(Intime,interval 3 day) and doctorId = a.doctorId) as Mstate4,
+	(select if(Astate = 1,'休息',AtimeSegment) from arrange where time = date_add(Intime,interval 3 day) and doctorId = a.doctorId) as AtimeSegment4,
+	(select if(Astate = 1,'休息',Anum) from arrange where time = date_add(Intime,interval 3 day) and doctorId = a.doctorId) as Anum4,
+	(select if(Astate = 1,'休息',Asurplus) from arrange where time = date_add(Intime,interval 3 day) and doctorId = a.doctorId) as Asurplus4,
+	(select Astate from arrange where time = date_add(Intime,interval 3 day) and doctorId = a.doctorId) as Astate4,
+    (select id from arrange where time = date_add(Intime,interval 4 day) and doctorId = a.doctorId) as id5,
+    (select time from arrange where time = date_add(Intime,interval 4 day) and doctorId = a.doctorId) as time5,
+	(select if(Mstate = 1,'休息',MtimeSegment) from arrange where time = date_add(Intime,interval 4 day) and doctorId = a.doctorId) as MtimeSegment5,
+	(select if(Mstate = 1,'休息',Mnum) from arrange where time = date_add(Intime,interval 4 day) and doctorId = a.doctorId) as Mnum5,
+	(select if(Mstate = 1,'休息',Msurplus) from arrange where time = date_add(Intime,interval 4 day) and doctorId = a.doctorId) as Msurplus5,
+	(select Mstate from arrange where time = date_add(Intime,interval 4 day) and doctorId = a.doctorId) as Mstate5,
+	(select if(Astate = 1,'休息',AtimeSegment) from arrange where time = date_add(Intime,interval 4 day) and doctorId = a.doctorId) as AtimeSegment5,
+	(select if(Astate = 1,'休息',Anum) from arrange where time = date_add(Intime,interval 4 day) and doctorId = a.doctorId) as Anum5,
+	(select if(Astate = 1,'休息',Asurplus) from arrange where time = date_add(Intime,interval 4 day) and doctorId = a.doctorId) as Asurplus5,
+	(select Astate from arrange where time = date_add(Intime,interval 4 day) and doctorId = a.doctorId) as Astate5,
+    (select id from arrange where time = date_add(Intime,interval 5 day) and doctorId = a.doctorId) as id6,
+    (select time from arrange where time = date_add(Intime,interval 5 day) and doctorId = a.doctorId) as time6,
+	(select if(Mstate = 1,'休息',MtimeSegment) from arrange where time = date_add(Intime,interval 5 day) and doctorId = a.doctorId) as MtimeSegment6,
+	(select if(Mstate = 1,'休息',Mnum) from arrange where time = date_add(Intime,interval 5 day) and doctorId = a.doctorId) as Mnum6,
+	(select if(Mstate = 1,'休息',Msurplus) from arrange where time = date_add(Intime,interval 5 day) and doctorId = a.doctorId) as Msurplus6,
+	(select Mstate from arrange where time = date_add(Intime,interval 5 day) and doctorId = a.doctorId) as Mstate6,
+	(select if(Astate = 1,'休息',AtimeSegment) from arrange where time = date_add(Intime,interval 5 day) and doctorId = a.doctorId) as AtimeSegment6,
+	(select if(Astate = 1,'休息',Anum) from arrange where time = date_add(Intime,interval 5 day) and doctorId = a.doctorId) as Anum6,
+	(select if(Astate = 1,'休息',Asurplus) from arrange where time = date_add(Intime,interval 5 day) and doctorId = a.doctorId) as Asurplus6,
+	(select Astate from arrange where time = date_add(Intime,interval 5 day) and doctorId = a.doctorId) as Astate6,
+    (select id from arrange where time = date_add(Intime,interval 6 day) and doctorId = a.doctorId) as id7,
+    (select time from arrange where time = date_add(Intime,interval 6 day) and doctorId = a.doctorId) as time7,
+	(select if(Mstate = 1,'休息',MtimeSegment) from arrange where time = date_add(Intime,interval 6 day) and doctorId = a.doctorId) as MtimeSegment7,
+	(select if(Mstate = 1,'休息',Mnum) from arrange where time = date_add(Intime,interval 6 day) and doctorId = a.doctorId) as Mnum7,
+	(select if(Mstate = 1,'休息',Msurplus) from arrange where time = date_add(Intime,interval 6 day) and doctorId = a.doctorId) as Msurplus7,
+	(select Mstate from arrange where time = date_add(Intime,interval 6 day) and doctorId = a.doctorId) as Mstate7,
+	(select if(Astate = 1,'休息',AtimeSegment) from arrange where time = date_add(Intime,interval 6 day) and doctorId = a.doctorId) as AtimeSegment7,
+	(select if(Astate = 1,'休息',Anum) from arrange where time = date_add(Intime,interval 6 day) and doctorId = a.doctorId) as Anum7,
+	(select if(Astate = 1,'休息',Asurplus) from arrange where time = date_add(Intime,interval 6 day) and doctorId = a.doctorId) as Asurplus7,
+	(select Astate from arrange where time = date_add(Intime,interval 6 day) and doctorId = a.doctorId) as Astate7
+ from arrange a where time between Intime and date_add(Intime,interval 6 day) and doctorId = a.doctorId  group by doctorId limit Inpage,Inlimit;
+ end$$
+
+CREATE DEFINER=`register`@`localhost` PROCEDURE `getArrangeById` (IN `Intime` DATE, IN `Inid` INT)  begin
+select 
+    a.id,a.doctorName,a.doctorId,a.hosName,a.hosId,a.depName,
+    (select id from arrange where time = date_add(Intime,interval 0 day) and doctorId = a.doctorId) as id1,
+	(select time from arrange where time = date_add(Intime,interval 0 day) and doctorId = a.doctorId) as time1,
+	(select if(Mstate = 1,'休息',MtimeSegment) from arrange where time = date_add(Intime,interval 0 day) and doctorId = a.doctorId) as MtimeSegment1,
+	(select if(Mstate = 1,'休息',Mnum) from arrange where time = date_add(Intime,interval 0 day) and doctorId = a.doctorId) as Mnum1,
+	(select if(Mstate = 1,'休息',Msurplus) from arrange where time = date_add(Intime,interval 0 day) and doctorId = a.doctorId) as Msurplus1,
+	(select Mstate from arrange where time = date_add(Intime,interval 0 day) and doctorId = a.doctorId) as Mstate1,
+	(select if(Astate = 1,'休息',AtimeSegment) from arrange where time = date_add(Intime,interval 0 day) and doctorId = a.doctorId) as AtimeSegment1,
+	(select if(Astate = 1,'休息',Anum) from arrange where time = date_add(Intime,interval 0 day) and doctorId = a.doctorId) as Anum1,
+	(select if(Astate = 1,'休息',Asurplus) from arrange where time = date_add(Intime,interval 0 day) and doctorId = a.doctorId) as Asurplus1,
+	(select Astate from arrange where time = date_add(Intime,interval 0 day) and doctorId = a.doctorId) as Astate1,
+    (select id from arrange where time = date_add(Intime,interval 1 day) and doctorId = a.doctorId) as id2,
+    (select time from arrange where time = date_add(Intime,interval 1 day) and doctorId = a.doctorId) as time2,
+	(select if(Mstate = 1,'休息',MtimeSegment) from arrange where time = date_add(Intime,interval 1 day) and doctorId = a.doctorId) as MtimeSegment2,
+	(select if(Mstate = 1,'休息',Mnum) from arrange where time = date_add(Intime,interval 1 day) and doctorId = a.doctorId) as Mnum2,
+	(select if(Mstate = 1,'休息',Msurplus) from arrange where time = date_add(Intime,interval 1 day) and doctorId = a.doctorId) as Msurplus2,
+	(select Mstate from arrange where time = date_add(Intime,interval 1 day) and doctorId = a.doctorId) as Mstate2,
+	(select if(Astate = 1,'休息',AtimeSegment) from arrange where time = date_add(Intime,interval 1 day) and doctorId = a.doctorId) as AtimeSegment2,
+	(select if(Astate = 1,'休息',Anum) from arrange where time = date_add(Intime,interval 1 day) and doctorId = a.doctorId) as Anum2,
+	(select if(Astate = 1,'休息',Asurplus) from arrange where time = date_add(Intime,interval 1 day) and doctorId = a.doctorId) as Asurplus2,
+	(select Astate from arrange where time = date_add(Intime,interval 1 day) and doctorId = a.doctorId) as Astate2,
+    (select id from arrange where time = date_add(Intime,interval 2 day) and doctorId = a.doctorId) as id3,
+    (select time from arrange where time = date_add(Intime,interval 2 day) and doctorId = a.doctorId) as time3,
+	(select if(Mstate = 1,'休息',MtimeSegment) from arrange where time = date_add(Intime,interval 2 day) and doctorId = a.doctorId) as MtimeSegment3,
+	(select if(Mstate = 1,'休息',Mnum) from arrange where time = date_add(Intime,interval 2 day) and doctorId = a.doctorId) as Mnum3,
+	(select if(Mstate = 1,'休息',Msurplus) from arrange where time = date_add(Intime,interval 2 day) and doctorId = a.doctorId) as Msurplus3,
+	(select Mstate from arrange where time = date_add(Intime,interval 2 day) and doctorId = a.doctorId) as Mstate3,
+	(select if(Astate = 1,'休息',AtimeSegment) from arrange where time = date_add(Intime,interval 2 day) and doctorId = a.doctorId) as AtimeSegment3,
+	(select if(Astate = 1,'休息',Anum) from arrange where time = date_add(Intime,interval 2 day) and doctorId = a.doctorId) as Anum3,
+	(select if(Astate = 1,'休息',Asurplus) from arrange where time = date_add(Intime,interval 2 day) and doctorId = a.doctorId) as Asurplus3,
+	(select Astate from arrange where time = date_add(Intime,interval 2 day) and doctorId = a.doctorId) as Astate3,
+    (select id from arrange where time = date_add(Intime,interval 3 day) and doctorId = a.doctorId) as id4,
+    (select time from arrange where time = date_add(Intime,interval 3 day) and doctorId = a.doctorId) as time4,
+	(select if(Mstate = 1,'休息',MtimeSegment) from arrange where time = date_add(Intime,interval 3 day) and doctorId = a.doctorId) as MtimeSegment4,
+	(select if(Mstate = 1,'休息',Mnum) from arrange where time = date_add(Intime,interval 3 day) and doctorId = a.doctorId) as Mnum4,
+	(select if(Mstate = 1,'休息',Msurplus) from arrange where time = date_add(Intime,interval 3 day) and doctorId = a.doctorId) as Msurplus4,
+	(select Mstate from arrange where time = date_add(Intime,interval 3 day) and doctorId = a.doctorId) as Mstate4,
+	(select if(Astate = 1,'休息',AtimeSegment) from arrange where time = date_add(Intime,interval 3 day) and doctorId = a.doctorId) as AtimeSegment4,
+	(select if(Astate = 1,'休息',Anum) from arrange where time = date_add(Intime,interval 3 day) and doctorId = a.doctorId) as Anum4,
+	(select if(Astate = 1,'休息',Asurplus) from arrange where time = date_add(Intime,interval 3 day) and doctorId = a.doctorId) as Asurplus4,
+	(select Astate from arrange where time = date_add(Intime,interval 3 day) and doctorId = a.doctorId) as Astate4,
+    (select id from arrange where time = date_add(Intime,interval 4 day) and doctorId = a.doctorId) as id5,
+    (select time from arrange where time = date_add(Intime,interval 4 day) and doctorId = a.doctorId) as time5,
+	(select if(Mstate = 1,'休息',MtimeSegment) from arrange where time = date_add(Intime,interval 4 day) and doctorId = a.doctorId) as MtimeSegment5,
+	(select if(Mstate = 1,'休息',Mnum) from arrange where time = date_add(Intime,interval 4 day) and doctorId = a.doctorId) as Mnum5,
+	(select if(Mstate = 1,'休息',Msurplus) from arrange where time = date_add(Intime,interval 4 day) and doctorId = a.doctorId) as Msurplus5,
+	(select Mstate from arrange where time = date_add(Intime,interval 4 day) and doctorId = a.doctorId) as Mstate5,
+	(select if(Astate = 1,'休息',AtimeSegment) from arrange where time = date_add(Intime,interval 4 day) and doctorId = a.doctorId) as AtimeSegment5,
+	(select if(Astate = 1,'休息',Anum) from arrange where time = date_add(Intime,interval 4 day) and doctorId = a.doctorId) as Anum5,
+	(select if(Astate = 1,'休息',Asurplus) from arrange where time = date_add(Intime,interval 4 day) and doctorId = a.doctorId) as Asurplus5,
+	(select Astate from arrange where time = date_add(Intime,interval 4 day) and doctorId = a.doctorId) as Astate5,
+    (select id from arrange where time = date_add(Intime,interval 5 day) and doctorId = a.doctorId) as id6,
+    (select time from arrange where time = date_add(Intime,interval 5 day) and doctorId = a.doctorId) as time6,
+	(select if(Mstate = 1,'休息',MtimeSegment) from arrange where time = date_add(Intime,interval 5 day) and doctorId = a.doctorId) as MtimeSegment6,
+	(select if(Mstate = 1,'休息',Mnum) from arrange where time = date_add(Intime,interval 5 day) and doctorId = a.doctorId) as Mnum6,
+	(select if(Mstate = 1,'休息',Msurplus) from arrange where time = date_add(Intime,interval 5 day) and doctorId = a.doctorId) as Msurplus6,
+	(select Mstate from arrange where time = date_add(Intime,interval 5 day) and doctorId = a.doctorId) as Mstate6,
+	(select if(Astate = 1,'休息',AtimeSegment) from arrange where time = date_add(Intime,interval 5 day) and doctorId = a.doctorId) as AtimeSegment6,
+	(select if(Astate = 1,'休息',Anum) from arrange where time = date_add(Intime,interval 5 day) and doctorId = a.doctorId) as Anum6,
+	(select if(Astate = 1,'休息',Asurplus) from arrange where time = date_add(Intime,interval 5 day) and doctorId = a.doctorId) as Asurplus6,
+	(select Astate from arrange where time = date_add(Intime,interval 5 day) and doctorId = a.doctorId) as Astate6,
+    (select id from arrange where time = date_add(Intime,interval 6 day) and doctorId = a.doctorId) as id7,
+    (select time from arrange where time = date_add(Intime,interval 6 day) and doctorId = a.doctorId) as time7,
+	(select if(Mstate = 1,'休息',MtimeSegment) from arrange where time = date_add(Intime,interval 6 day) and doctorId = a.doctorId) as MtimeSegment7,
+	(select if(Mstate = 1,'休息',Mnum) from arrange where time = date_add(Intime,interval 6 day) and doctorId = a.doctorId) as Mnum7,
+	(select if(Mstate = 1,'休息',Msurplus) from arrange where time = date_add(Intime,interval 6 day) and doctorId = a.doctorId) as Msurplus7,
+	(select Mstate from arrange where time = date_add(Intime,interval 6 day) and doctorId = a.doctorId) as Mstate7,
+	(select if(Astate = 1,'休息',AtimeSegment) from arrange where time = date_add(Intime,interval 6 day) and doctorId = a.doctorId) as AtimeSegment7,
+	(select if(Astate = 1,'休息',Anum) from arrange where time = date_add(Intime,interval 6 day) and doctorId = a.doctorId) as Anum7,
+	(select if(Astate = 1,'休息',Asurplus) from arrange where time = date_add(Intime,interval 6 day) and doctorId = a.doctorId) as Asurplus7,
+	(select Astate from arrange where time = date_add(Intime,interval 6 day) and doctorId = a.doctorId) as Astate7
+ from arrange a where time between Intime and date_add(Intime,interval 6 day) and doctorId = Inid  group by doctorId;
+ end$$
+
+CREATE DEFINER=`register`@`localhost` PROCEDURE `getStatistics` ()  begin
+select 
+    (select count(id) from make where datediff(createTime,now()) = 0) as appointments,
+    (select if(sum(money),sum(money),0) from refund where datediff(time,now()) = 0) as refund,
+    (select if(sum(auantity),sum(auantity),0) from recorder where datediff(time,now()) = 0) as recharge,
+    (select if(sum(price),sum(price),0) from make where datediff(createTime,now()) = 0) as outpatient,
+    (select count(id) from users where datediff(createTime,now()) = 0) as users
+;
+ end$$
+
+CREATE DEFINER=`register`@`localhost` PROCEDURE `patDefMod` (IN `uid` INT, IN `pid` INT)  begin
+	update patient set isdefault = 2 where userId = uid;
+   select * from patient where userId = uid;
+   update patient set isdefault = 1 where id = pid;
+ end$$
+
+DELIMITER ;
 
 -- --------------------------------------------------------
 
