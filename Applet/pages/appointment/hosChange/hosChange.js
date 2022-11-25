@@ -94,7 +94,7 @@ Page({
 		let today = new Date()
 		let date2 = new Date(today);
 		let dateArray = []
-		date2.setDate(today.getDate() + 7)
+		//date2.setDate(today.getDate() + 7)
 		for (let i = 0; i < 7; i++) {
 			let everyDay = formatDate(date2.setDate(today.getDate() + i))
 			let map = {
