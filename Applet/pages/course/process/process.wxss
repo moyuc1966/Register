@@ -1,0 +1,27 @@
+/* pages/course/process/process.wxss */
+.h1{
+	display: block;
+	font-size: 16px;
+	color: #333;
+	margin: 15px 0 15px 15px;
+	box-sizing: border-box;
+	line-height: 22px;
+}
+.cont{
+	display: block;
+	font-size: 16px;
+	color: #555555;
+	margin: 10px 0 10px 15px;
+	box-sizing: border-box;
+	font-weight: 300;
+	line-height: 22px;
+}
+image{
+	max-width: 400px;
+	max-height: 620px;
+	display: block;
+	margin: 10px auto;
+	background-color: #e4efff;
+	border-radius: 3px;
+	border: 1px solid #eee;
+}

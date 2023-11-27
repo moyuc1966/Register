@@ -1,0 +1,109 @@
+/* pages/my/my.wxss */
+.head{
+	width: 750rpx;
+	height: 170px;
+	background-color: #3478f7;
+	color: #ffffff;
+	padding: 10px;
+	box-sizing: border-box;
+	padding-left:6%;
+	display: flex;
+	padding-top: 18px;
+	position: relative;
+}
+.main{
+	width: 750rpx;
+	position: absolute;top: 170px;
+	bottom: 0;
+	background-color: #f3f8ff;
+	padding-bottom: 60px;
+}
+.gotop{
+	width: 90%;
+	border-radius: 7px;
+	min-height: 100px;
+	background-color: #fff;
+	position: relative;top: -70px;
+	margin: 0 auto;
+}
+.head image{
+	background-color: #ccc;
+	border-radius: 50%;
+	height: 55px;
+	width: 55px;
+
+}
+.headRight{
+	margin-left: 10px;
+	height: 50px;
+	display:flex;
+	flex-wrap: wrap;
+	align-items: center;
+}
+.headRight text{
+	display: block;
+	width: 100%;
+}
+.name{
+	font-size: 18px;
+	letter-spacing: 2px;
+	/* height: 18px; */
+}
+.username{
+	font-size: 14px;
+	font-weight: 100;
+	letter-spacing: 1px;
+}
+.mess{
+	position: absolute;
+	top: 33px;
+	right: 5%;
+}
+.mess image{
+	width: 18px;
+	height: 18px;
+	border-radius: 0;
+	background-color: #3478f7;
+}
+.msgNum{
+	width: 16px;
+	height: 16px;
+	font-size: 12px;
+	border-radius: 8px;
+	background-color: #f16365;
+	color: #fff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: absolute;left: 9px;
+	top: -9px;
+}
+.list{
+	border-bottom: 1px solid #eee;
+	height: 70px;
+	display: flex;
+	align-items: center;
+	position: relative;
+	padding: 0 12px;
+	box-sizing: border-box;
+}
+.listLeftImg{
+	display: block;
+	height: 29px;
+	width: 28px;
+	border-radius: 50%;
+	background-color: #e6f1ff;
+	padding: 3px;
+}
+.list text{
+	font-size: 15px;
+	letter-spacing: 1.5px;
+	margin-left: 15px;
+	color: #757474;
+}
+.listRightImg{
+	position: absolute;right: 20px;
+	top: 24px;
+	width: 8px;
+	height: 12px;
+}

@@ -1,0 +1,7 @@
+<!--pages/appointment/confirm/complete/complete.wxml-->
+<image src="../../../../image/u225.svg" mode="scaleToFill"></image>
+<text class="title">预约成功</text>
+<text class="ts">您已预约成功，请您持本人身份证按时就诊</text>
+<view bindtap="look" class="button">查看预约详情</view>
+<view bindtap="gohome" class="button home">返回首页</view>
+

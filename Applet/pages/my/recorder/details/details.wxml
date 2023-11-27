@@ -1,0 +1,22 @@
+<wxs module="filter" src="../../../../utils/tool.wxs"></wxs>
+<text wx:if="{{order.orderId != '' && order.orderId != null}}"  class="title" style="color:{{order.balance == 0 ? '#006eff' : '#F46363'}};">{{order.balance == 0 ? '未支付' : '+' + filter.moenyago(order.auantity)}}</text>
+<text wx:if="{{order.orderId != '' && order.orderId != null}}"  class="ts" >{{order.balance == 0 ? '欲充值金额：￥'+filter.moenyago(order.auantity) : '充值成功'}}</text>
+<view class="main" wx:if="{{order.orderId != '' && order.orderId != null}}" >
+	<view class="block">
+		<text class="tit">充值卡号</text>
+		<text class="cont">{{order.card}}</text>
+	</view>
+	<view class="block">
+		<text class="tit">支付方式</text>
+		<text class="cont">{{order.payType}}</text>
+	</view>
+	<view class="block">
+		<text class="tit">创建时间</text>
+		<text class="cont">{{order.time}}</text>
+	</view>
+	<view class="block">
+		<text class="tit">支付单号</text>
+		<text class="cont" bindlongpress="copy" data-id="{{order.orderId}}">{{order.orderId}}</text>
+	</view>
+</view>
+<view style="width: 1;height: 50px;"></view>

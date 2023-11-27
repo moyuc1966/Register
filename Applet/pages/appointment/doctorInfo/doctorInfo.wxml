@@ -1,0 +1,32 @@
+<!--pages/appointment/doctorInfo/doctorInfo.wxml-->
+<wxs module="tool" src="/utils/tool.wxs"></wxs>
+<view class="doc-block">
+	<image src="{{url + doctor.photo}}" mode="scaleToFill"></image>
+	<view class="doc">
+		<text class="name">{{doctor.name}}</text>
+		<text class="pos">{{doctor.position}}</text>
+	</view>
+	<text class="brief">医生简介：{{doctor.brief}}</text>
+</view>
+<text class="title">医生全部排班</text>
+<view class="doctor-list-box">
+	<text class="hod">{{depName}}</text>
+	<view class="time-list" wx:for="{{arrange}}" wx:key="index">
+		<view class="time">{{item.time}} <text class="time-week">{{item.week}}</text> </view>
+		<text class="cont" wx:if="{{item.Mnum != null}}">上午预约总量: {{item.Mnum}} <text class="duan">时间段: {{item.MtimeSegment}}</text> <text class="price">￥{{tool.moenyago(tool.sum(doctor.dia,doctor.reg))}}</text>  </text>
+		<text class="cont" wx:if="{{item.Anum != null}}">下午预约总量: {{item.Anum}} <text class="duan">时间段: {{item.AtimeSegment}}</text> <text class="price">￥{{tool.moenyago(tool.sum(doctor.dia,doctor.reg))}}</text>  </text>
+	</view>
+</view>
+<text class="title">同科室医生推荐</text>
+<view class="tui-doc-block" wx:for="{{doctorList}}" wx:key="index" wx:if="{{item.state != 0}}" bindtap="uigoDoctor" data-orderId="{{item.id}}">
+	<image src="{{url + item.photo}}" mode="scaleToFill"></image>
+	<view class="doc">
+		<text class="name">{{item.name}}<text class="pos">{{item.position}}</text></text>
+		<text class="brief">{{item.brief}}</text>
+	</view>
+</view>
+<view wx:if="{{doctorList.length == 0}}" class="not">
+		<image src="../../../image/not.png"></image>
+		<text>暂无数据</text>
+	</view>
+<view style="width: 1;height: 35px;"></view>

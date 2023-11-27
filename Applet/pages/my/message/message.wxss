@@ -1,0 +1,73 @@
+.not{
+	width: 100%;
+	height: 300px;
+	margin-top: 30px;
+}
+.not image{
+	width: 100%;
+}
+.not text{
+	font-size: 15px;
+	color: #ccc;
+	display: block;
+	width: 100%;
+	text-align: center;
+	margin-top: 20px;
+}
+.block{
+	width: 100%;
+	/* padding: 10px; */
+	box-sizing: border-box;
+	border-bottom: 1px solid #eee;
+	padding-bottom: 14px;
+	position: relative;
+	display: flex;
+	margin: 11px 0;
+	padding-left: 15px;
+}
+.tw{
+	width: 11px;
+	height: 11px;
+	border-radius: 50%;
+	background-color: #f46565;
+	position: absolute;top: 44px;right: 15px;
+}
+.avarat{
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background-color: #e4efff;
+	display: block;
+}
+.content{
+	width: calc(100% - 80px);
+	margin-left: 10px;
+}
+.title{
+	width: 100%;
+	display: block;
+	font-size: 16px;
+	color: #000;
+	margin-bottom: 5px;
+	overflow: hidden;
+    -webkit-line-clamp: 1;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+.cont{
+	overflow: hidden;
+    -webkit-line-clamp: 2;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+	-webkit-box-orient: vertical;
+	font-size: 13px;
+	color: #aaa;
+	line-height: 20px;
+	font-weight: 300;
+}
+.time{
+	font-size: 10px;
+	color: rgb(146, 146, 146);
+	position: absolute;right: 15px;top: 4px;
+}

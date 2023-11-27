@@ -1,0 +1,88 @@
+/* pages/sign/sign.wxss */
+.title{
+	display: block;
+	color: #000;
+	font-size: 25px;
+	font-weight: 400;
+	margin: 25px 0px 10px 25px;
+}
+.ftitle{
+	display: block;
+	color: rgb(160, 160, 160);
+	font-size: 14px;
+	letter-spacing: 2px;
+	margin-left: 25px;
+	margin-bottom: 48px;
+}
+input{
+	width: 85%;
+	background-color: #eee;
+	border-radius: 18px;
+	height: 40px;
+	padding: 3px;
+	padding-left: 7px;
+	font-size: 15px;
+	margin: 25px auto;
+}
+.button{
+	margin-top: 60px;
+	height: 45px;
+	border-radius: 20px;
+	width: 82%;
+	margin: 0 auto;
+	color: #fff;
+	background-color: #3478f7;
+	display: block;
+	line-height: 45px;
+	text-align: center;
+	font-size: 16px;
+}
+.and{
+	display: block;
+	font-size: 14px;
+	color: rgb(73, 73, 73);
+	margin-top: 25px;
+	text-align: center;
+	width: 100%;
+	margin-bottom: 60px;
+}
+.content{
+	padding-bottom: 60px;
+}
+.hr{
+	color: #000;
+	margin-left: 15px;
+	font-size: 14px;
+}
+radio-group{
+	display: flex;
+	height: 60px;
+	width: 85%;
+	margin: 0 auto;
+	align-items: center;
+}
+radio-group text{
+	font-size: 13px;
+	color: rgb(119, 119, 119);
+	margin-right: 15px;
+}
+radio-group label text{
+	color: rgb(71, 71, 71);
+}
+.reg input{
+	background-color: #fff;
+	border-bottom: 1px solid #ccc;
+	border-radius: 0;
+	height: 40px;
+	margin-top: 10px;
+}
+.seek{
+	color: #3478f7;
+	font-size: 12px;
+	display: block;
+	width: 100%;
+	padding-right: 46px;
+	box-sizing: border-box;
+	text-align: right;
+	position: relative;top: 20px;
+}

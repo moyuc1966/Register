@@ -1,0 +1,17 @@
+html,body,#app{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #f3f8ff;
+}
+/**滚动条的宽度*/
+::-webkit-scrollbar {
+  width: 8px; 
+ 
+}
+/* 滚动条的滑块 */
+::-webkit-scrollbar-thumb {
+  background-color: #eaecf1;
+  border-radius: 3px;
+}

@@ -1,0 +1,154 @@
+.pat{
+	width: 90%;
+	height: 104px;
+	border-radius: 4px;
+	background-color: #f5f8ff;
+	padding: 10px 20px;
+	box-sizing: border-box;
+	margin: 15px auto;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.patCont{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.name{
+	font-size: 16px;
+	color: #555;
+	margin-right: 10px;
+	display: block;
+}
+.main{
+	background-color: #fdfdff;
+	width: 100%;
+	height: 100%;
+	padding-bottom: 60px;
+}
+.relation{
+	display: block;
+	padding: 3px 10px;
+	border-radius: 20px;
+	color: #006eff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 12px;
+	background-color: #e2ecff;
+}
+.card{
+	font-size: 14px;
+	color: #AAA;
+	margin-top: 6px;
+	display: block;
+}
+.change{
+	width: 80px;
+}
+.change image{
+	width: 20px;
+	height: 20px;
+	display: block;
+	margin: 5px auto;
+}
+.change text{
+	color: #333333;
+	font-size: 12px;
+	display: block;
+	width: 100%;
+	text-align: center;
+}
+.blan{
+	width: 90%;
+	margin: 15px auto;
+	padding: 10px 25px;
+	border: 1px solid #eee;
+	border-radius: 5px;
+	background-color: #fff;
+	height: 60px;
+	/* -webkit-box-shadow: -1px 0px 13px 0px rgba(50, 50, 50, 0.05);
+	-moz-box-shadow:    -1px 0px 13px 0px rgba(50, 50, 50, 0.05);
+	box-shadow:         -1px 0px 13px 0px rgba(50, 50, 50, 0.05); */
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	box-sizing: border-box;
+}
+.blan text{
+	display: block;
+	font-size: 16px;
+	color: #555;
+}
+.tap{
+	width: 150px;
+	height: 45px;
+	display: flex;
+	align-items: center;
+	padding-left: 5%;
+	font-size: 16px;
+	color: #006eff;
+	box-sizing: border-box;
+}
+.tap .tapLeft{
+	width: 18px;
+	height: 7px;
+	border-radius: 3px;
+	background-color: #006eff;
+	margin-right: 10px;
+}
+.not{
+	width: 100%;
+	height: 300px;
+	margin-top: 30px;
+}
+.not image{
+	width: 100%;
+}
+.not text{
+	font-size: 15px;
+	color: #ccc;
+	display: block;
+	width: 100%;
+	text-align: center;
+	margin-top: 20px;
+}
+.block{
+	border-top: 1px solid #eee;
+	width: 85%;
+	padding: 1px 0;
+	margin: 5px auto;
+	height: 80px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.block:last-child{
+	border-bottom: 1px solid #eee;
+}
+.typename{
+	text-align: left;
+	font-size: 16px;
+	color: #333;
+	display: block;
+}
+.time{
+	display: block;
+	color: #aaa;
+	font-size: 12px;
+	margin-top: 10px;
+}
+.money{
+	display: block;
+	color: #F59A23;
+	font-size: 17px;
+	text-align: right;
+}
+.balance{
+	display: block;
+	color: #aaa;
+	font-size: 12px;
+	margin-top: 10px;
+	text-align: right;
+}

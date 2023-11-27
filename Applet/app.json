@@ -1,0 +1,70 @@
+{
+	"pages": [
+		"pages/index/index",
+		"pages/my/my",
+		"pages/sign/sign",
+		"pages/course/course",
+		"pages/article/article",
+		"pages/article/content/content",
+		"pages/sign/seek/seek",
+		"pages/navigation/navigation",
+		"pages/navigation/details/details",
+		"pages/navigation/floor/floor",
+		"pages/my/feedback/feedback",
+		"pages/my/info/info",
+		"pages/my/modPass/modPass",
+		"pages/my/message/message",
+		"pages/my/message/content/content",
+		"pages/make/details/details",
+		"pages/my/recorder/recorder",
+		"pages/my/recorder/details/details",
+		"pages/my/payOrder/payOrder",
+		"pages/my/payOrder/details/details",
+		"pages/make/make",
+		"pages/my/patient/patient",
+		"pages/my/patient/info/info",
+		"pages/refund/refund",
+		"pages/my/refund/refund",
+		"pages/my/refund/details/details",
+		"pages/recharge/recharge",
+		"pages/appointment/appointment",
+		"pages/appointment/dep/dep",
+		"pages/appointment/hosChange/hosChange",
+		"pages/appointment/confirm/confirm",
+		"pages/appointment/confirm/notice/notice",
+		"pages/appointment/confirm/complete/complete",
+		"pages/appointment/doctorInfo/doctorInfo",
+		"pages/course/process/process",
+		"pages/my/feedback/his/his"
+	],
+	"window": {
+		"backgroundTextStyle": "light",
+		"navigationBarBackgroundColor": "#fff",
+		"navigationBarTitleText": "预约挂号",
+		"navigationBarTextStyle": "black"
+	},
+	"style": "v2",
+	"sitemapLocation": "sitemap.json",
+	"lazyCodeLoading": "requiredComponents",
+	"tabBar": {
+		"color": "#000000",
+		"selectedColor": "#2E87E4",
+		"backgroundColor": "#fff",
+		"borderStyle": "black",
+		"position": "bottom",
+		"list": [
+			{
+				"selectedIconPath": "image/home_hover.png",
+				"iconPath": "image/home.png",
+				"pagePath": "pages/index/index",
+				"text": "首页"
+			},
+			{
+				"selectedIconPath": "image/my_hover.png",
+				"iconPath": "image/my.png",
+				"pagePath": "pages/my/my",
+				"text": "个人中心"
+			}
+		]
+	}
+}

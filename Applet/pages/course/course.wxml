@@ -1,0 +1,26 @@
+<text class="title">预约业务</text>
+<view class="block" bindtap="uigo" data-type="添加就诊人">
+	<text>添加就诊人</text>
+	<image src="../../image/next.svg"></image>
+</view>
+<view class="block" bindtap="uigo" data-type="预约挂号流程">
+	<text>预约挂号流程</text>
+	<image src="../../image/next.svg"></image>
+</view>
+<view class="block" bindtap="uigo" data-type="预约记录">
+	<text>预约记录</text>
+	<image src="../../image/next.svg"></image>
+</view>
+<text class="title">费用相关</text>
+<view class="block" bindtap="uigo" data-type="余额充值">
+	<text>余额充值</text>
+	<image src="../../image/next.svg"></image>
+</view>
+<view class="block" bindtap="uigo" data-type="其他缴费">
+	<text>其他缴费</text>
+	<image src="../../image/next.svg"></image>
+</view><text class="title">其他问题</text>
+<view class="block" bindtap="uigo" data-type="反馈问题">
+	<text>反馈问题</text>
+	<image src="../../image/next.svg"></image>
+</view>

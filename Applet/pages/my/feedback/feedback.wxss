@@ -1,0 +1,72 @@
+/* pages/my/feedback/feedback.wxss */
+.ts{
+	margin: 10px 0 15px 15px;
+	color: #AAA;
+	font-size: 16px;
+	display: block;
+	padding-bottom: 18px;
+	border-bottom:1px solid #eee ;
+}
+.block{
+	width: 95%;
+	margin: 10px auto;
+	padding: 10px;
+	box-sizing: border-box;
+	border-bottom: 1px solid #eee;
+	display: flex;
+	position: relative;
+}
+image{
+	width: 10px;
+	height: 14px;
+	position: absolute;right: 30px;
+	top: calc(50% - 7px);
+}
+.tit{
+	width: 100px;
+	display: block;
+	color: #333;
+	font-size: 16px;
+	height: 30px;
+	line-height: 30px;
+}
+picker{
+	height: 30px;
+	line-height: 30px;
+}
+textarea{
+	margin-top: 6px;
+	width: calc(100% - 60px);
+	min-height: 45px;
+	display: block;
+	height: auto;
+}
+.con{
+	min-height: 65px;
+}
+input{
+	margin-top: -2px;
+	width: calc(100% - 60px);
+	height: 35px;
+	display: block;
+}
+.button{
+	height: 45px;
+	width: 90%;
+	margin: 50px auto 60px auto;
+	background-color: #006eff;
+	color: #fff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 19px;
+	border-radius: 5px;
+	margin-bottom: 45px;
+}
+.his{
+	display: block;
+	width: 100%;
+	text-align: center;
+	color: #006eff;
+	font-size: 14px;
+}

@@ -1,0 +1,62 @@
+<!--pages/course/process/process.wxml-->
+<view wx:if="{{type == '添加就诊人'}}">
+	<text class="h1">1、先注册登录小程序</text>
+	<text class="h1">2、点击左下角 “个人中心” ，之后点击 “管理就诊人”</text>
+	<image src="{{url + '/images/default/course/gomy.png'}}" mode="widthFix"></image>
+	<image  src="{{url + '/images/default/course/goPat.png'}}" mode="widthFix"></image>
+	<text class="h1">3、点击蓝色 “添加就诊人” 按钮前往信息页</text>
+	<image src="{{url + '/images/default/course/addPat.png'}}" mode="widthFix"></image>
+	<text class="h1">4、填写信息后点击下方蓝色按钮完成添加</text>
+	<image src="{{url + '/images/default/course/patInfo.png'}}" mode="widthFix"></image>
+	<text class="cont">注：每个账号只能绑定五位就诊人，只能且必须一位就诊人，默认首位添加的就诊人为默认，可在 “管理就诊人页面重新设置”</text>
+</view>
+<view wx:if="{{type == '预约挂号流程'}}">
+	<text class="h1">1、先注册登录小程序</text>
+	<text class="h1">2、点击小程序首页预约挂号，如若没有添加就诊人请先添加</text>
+	<text class="h1">3、点击需要挂号的就诊人进入科室选择</text>
+	<text class="cont">选择要挂号的科室，可在顶部切换院区，选择需要挂号的科室，点击对应的二级科室选择挂号医生</text>
+	<image src="{{url + '/images/default/course/arrInfo.png'}}" mode="widthFix"></image>
+	<text class="cont">上方可点击切换可预约日期，不同的日期会有不同的医生坐诊，点击医生卡片可查看医生信息，选择好医生后点击 “选择时间” 按钮选择具体时间</text>
+	<image src="{{url + '/images/default/course/ArrDoct.png'}}" mode="widthFix"></image>
+	<image src="{{url + '/images/default/course/addTime.png'}}" mode="widthFix"></image>
+	<text class="h1">4、选择时间后加入信息确认页面，检查无误后点击下方按钮提交预约信息完成预约</text>
+</view>
+<view wx:if="{{type == '预约记录'}}">
+	<text class="h1">1、先注册登录小程序</text>
+	<text class="h1">2、点击左下角 “个人中心” ，之后点击 “预约挂号记录”</text>
+	<image src="{{url + '/images/default/course/make.png'}}" mode="widthFix"></image>
+	<text class="cont">可在上方点击切换就诊人，默认显示被设置为默认的数据</text>
+	<image  src="{{url + '/images/default/course/patChange.png'}}" mode="widthFix"></image>
+	<text class="cont">点击预约记录卡片可进入到预约详情页面，为完成的预约可点击最下方按钮取消</text>
+</view>
+<view wx:if="{{type == '余额充值'}}">
+	<text class="h1">1、先注册登录小程序</text>
+	<text class="h1">2、点击首页的 “在线充值” 进入充值功能</text>
+	<image src="{{url + '/images/default/course/payIndex.png'}}" mode="widthFix"></image>
+	<text class="cont">可在上方点击切换就诊人，默认充值到被设置为默认的就诊人的就诊卡内</text>
+	<image  src="{{url + '/images/default/course/patChange.png'}}" mode="widthFix"></image>
+	<text class="h1">3、点击选择需要充值的金额或点击自定义输入金额</text>
+	<image  src="{{url + '/images/default/course/paymoney.png'}}" mode="widthFix"></image>
+	<image  src="{{url + '/images/default/course/money.png'}}" mode="widthFix"></image>
+	<text class="h1">4、点击下方 “确认充值” 按钮支付，完成后可在充值记录或管理就诊人中查看到账情况</text>
+</view> 
+<view wx:if="{{type == '其他缴费'}}">
+	<text class="h1">1、先注册登录小程序</text>
+	<text class="h1">2、点击首页的 “自助缴费” 进入缴费功能</text>
+	<image src="{{url + '/images/default/course/run.png'}}" mode="widthFix"></image>
+	<text class="cont">可在上方点击切换就诊人，默认显示被设置为默认的就诊人的数据</text>
+	<image  src="{{url + '/images/default/course/patChange.png'}}" mode="widthFix"></image>
+	<text class="h1">3、点击待缴费卡片进入缴费页面</text>
+	<text class="h1">4、检查缴费详情，无误后点击下方支付，如果余额不足请先充值</text>
+</view> 
+<view wx:if="{{type == '反馈问题'}}">
+	<text class="h1">1、先注册登录小程序</text>
+	<text class="h1">2、点击左下角 “个人中心” ，之后点击 “预约挂号记录”</text>
+	<image src="{{url + '/images/default/course/foo.png'}}" mode="widthFix"></image>
+	<text class="cont">填写需反馈信息，点击按钮提交反馈</text>
+	<image  src="{{url + '/images/default/course/fonnt.png'}}" mode="widthFix"></image>
+	<text class="cont">手机号和邮箱可空，若填写后提交待处理完成反馈会主动联系您咨询处理结果</text>
+</view>
+
+
+<view style="width: 1;height: 60px;"></view>

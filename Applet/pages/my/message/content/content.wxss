@@ -1,0 +1,33 @@
+/* pages/my/message/content/content.wxss */
+.title{
+	display: block;
+	width: 100%;
+	padding: 10px 15px;
+	box-sizing: border-box;
+	font-size: 18px;
+	color: #000;
+	margin-top: 15px;
+	text-align: center;
+}
+.name{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 14px;
+	color: rgb(109, 109, 109);
+	margin-top: 10px;
+}
+rich-text{
+	width: 92%;
+	margin: 30px auto ;
+	display: block;
+	font-size: 14px;
+	color: rgb(90, 90, 90);
+	padding: 25px;
+	box-sizing: border-box;
+	min-height: 150px;
+	border-radius: 15px 15px 0 0;
+	-webkit-box-shadow: 0px -8px 8px 0px rgba(124, 143, 157, 0.13);
+-moz-box-shadow:    0px -8px 8px 0px rgba(124, 143, 157, 0.13);
+box-shadow:         0px -8px 8px 0px rgba(124, 143, 157, 0.13);
+}

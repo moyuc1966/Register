@@ -1,0 +1,17 @@
+<view class="content" wx:if="{{isemail}}">
+	<text class="hr">请填写注册时绑定邮箱</text>
+	<input model:value="{{email}}" type="text" placeholder="请输入邮箱" placeholder-style="color:#ccc;font-size:13px;" maxlength="22"/>
+	<view class="button" style="margin-top: 40px;" bindtap="into">发送验证码</view>
+</view>
+<view class="content" wx:if="{{iscode}}">
+	<text class="hr">请填写收到的验证码</text>
+    <text class="read">验证码已发送，请在10分钟内完成重置密码操作</text>
+	<input model:value="{{code}}" type="number" placeholder="请输入6位验证码" placeholder-style="color:#ccc;font-size:13px;" maxlength="6"/>
+	<view class="button" style="margin-top: 40px;" bindtap="vercode">验证身份</view>
+</view>
+<view class="content" wx:if="{{ispass}}">
+	<text class="hr">请填写新的密码</text>
+	<input model:value="{{password}}" type="password" placeholder="请输入新的密码" placeholder-style="color:#ccc;font-size:13px;" maxlength="22"/>
+	<input model:value="{{newpassword}}" type="password" placeholder="请重复输入新的密码" placeholder-style="color:#ccc;font-size:13px;" maxlength="22"/>
+	<view class="button" style="margin-top: 40px;" bindtap="modpass">重置密码</view>
+</view>

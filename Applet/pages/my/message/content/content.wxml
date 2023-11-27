@@ -1,0 +1,6 @@
+<text class="title">{{item.title}}</text>
+<view class="name">
+	<text>{{item.source}}</text>
+	<text style="margin-left: 15px;">{{item.time}}</text>
+</view>
+<rich-text nodes="{{item.content}}"></rich-text>

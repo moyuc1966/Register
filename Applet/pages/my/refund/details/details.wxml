@@ -1,0 +1,18 @@
+<wxs module="filter" src="../../../../utils/tool.wxs"></wxs>
+<text wx:if="{{order.orderId != '' && order.orderId != null}}" class="title" style="color:{{order.state == 0 ? '#006eff' : order.state == 1 ? '#41ca9d' : '#F46363'}};">-{{filter.moenyago(order.money)}}</text>
+<text  wx:if="{{order.orderId != '' && order.orderId != null}}" class="ts" >{{order.state == 0 ? '等待审核中' : order.state == 1 ? '退款成功' : '已被驳回'}}</text>
+<view class="main" wx:if="{{order.orderId != '' && order.orderId != null}}" >
+	<view class="block">
+		<text class="tit">退款卡号</text>
+		<text class="cont">{{order.card}}</text>
+	</view>
+	<view class="block">
+		<text class="tit">创建时间</text>
+		<text class="cont">{{order.time}}</text>
+	</view>
+	<view class="block">
+		<text class="tit">退款单号</text>
+		<text class="cont" bindlongpress="copy" data-id="{{order.orderId}}">{{order.orderId}}</text>
+	</view>
+</view>
+<view style="width: 1;height: 50px;"></view>

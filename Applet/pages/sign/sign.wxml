@@ -1,0 +1,33 @@
+<!--pages/sign/sign.wxml-->
+<view wx:if="{{issign}}" class="content">
+	<text class="title">登录进入小程序</text>
+	<text class="ftitle">登录后使用小程序所有功能</text>
+	<input model:value="{{username}}" type="text" placeholder="请输入登录账号" placeholder-style="color:#ccc;font-size:13px;" maxlength="22"/>
+	<input model:value="{{password}}" type="password" placeholder="请输入登录密码" placeholder-style="color:#ccc;font-size:13px;" maxlength="22"/>
+	<text class="seek" bindtap="seek">找回密码</text>
+	<view class="button" style="margin-top: 40px;" bindtap="into">登录</view>
+	<text class="and" bindtap="change">还没有账号？<text style="color: #3478f7;">立即注册</text></text>
+</view>
+<view wx:else class="content reg">
+	<text class="title">注册小程序账号</text>
+	<text class="ftitle">登录后使用小程序所有功能</text>
+	<text class="hr">请填写账号信息</text>
+	<input model:value="{{username}}" type="text" placeholder="请输入登录账号" placeholder-style="color:#ccc;font-size:13px;" maxlength="22"/>
+	<input model:value="{{name}}" type="nickname" placeholder="请输入账号昵称" placeholder-style="color:#ccc;font-size:13px;" maxlength="22"/>
+	<input model:value="{{password}}" type="password" placeholder="请输入登录密码" placeholder-style="color:#ccc;font-size:13px;" maxlength="22"/>
+	<input model:value="{{newpassword}}" type="password" placeholder="请重复输入登录密码" placeholder-style="color:#ccc;font-size:13px;" maxlength="22"/>
+	<text class="hr">请填写身份信息</text>
+	<input model:value="{{phone}}" type="number" placeholder="请输入绑定手机号" placeholder-style="color:#ccc;font-size:13px;" maxlength="22"/>
+	<radio-group class="group" bindchange="radioChange">
+	<text>您的性别：</text>
+        <view class="label-2" wx:for="{{ageRadio}}" wx:key="index">
+          <radio color="#3478f7" id="{{item.name}}" value="{{item.name}}" checked="{{item.value == gender}}"></radio>
+          <label class="label-2-text" for="{{item.name}}"><text>{{item.name}}</text></label>
+        </view>
+      </radio-group>
+	<input model:value="{{emile}}" type="text" placeholder="请输入绑定邮箱" placeholder-style="color:#ccc;font-size:13px;" maxlength="22"/>
+	<input model:value="{{age}}" type="number" placeholder="请输入您的年龄" placeholder-style="color:#ccc;font-size:13px;" maxlength="22"/>
+	<view class="button" style="margin-top: 40px;" bindtap="register">立即注册</view>
+	<text class="and" bindtap="change">已有账号？<text style="color: #3478f7;">立即登录</text></text>
+</view>
+

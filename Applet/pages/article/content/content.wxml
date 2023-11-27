@@ -1,0 +1,10 @@
+<image src="{{url + info.imgUrl}}" wx:if="{{info.imgUrl}}" class="headImg" mode="scaleToFill"></image>
+<view class="main">
+	<text class="title">{{info.title}}</text>
+	<view class="name">
+		<text>{{info.author}}</text>
+		<text style="margin-left: 15px;">{{info.time}}</text>
+	</view>
+	<rich-text space="{{true}}" user-select="{{true}}" nodes="{{info.content}}">
+	</rich-text>
+</view>

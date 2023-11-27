@@ -1,0 +1,28 @@
+<!--pages/my/feedback/his/his.wxml-->
+<view wx:if="{{list.length == 0}}" class="not">
+	<image src="../../../../image/not.png"></image>
+	<text>暂无数据</text>
+</view>
+<view wx:for="{{list}}" class="block" wx:key="index">
+	<view class="top">
+		<text class="depName">{{item.type}}</text>
+		<text class="state" style="color:#aaa; font-size: 12px;">{{item.time}}</text>
+	</view>
+	<view class="botm">
+		<view>
+			<text class="ct">{{item.title}}</text>
+		</view>
+		<view>
+			<text class="tit">反馈内容</text>
+			<text class="con">{{item.content}}</text>
+		</view>
+		<view>
+			<text class="tit">反馈手机</text>
+			<text class="con">{{item.phone}}</text>
+		</view>
+		<view>
+			<text class="tit">反馈邮箱</text>
+			<text class="con">{{item.email}}</text>
+		</view>
+	</view>
+</view>

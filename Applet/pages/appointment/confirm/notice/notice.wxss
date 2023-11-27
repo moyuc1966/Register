@@ -1,0 +1,25 @@
+/* pages/appointment/confirm/notice/notice.wxss */
+.title{
+	font-size: 16px;
+	color: #333;
+	margin: 10px 0 00px 15px;
+	display: block;
+}
+.content{
+	margin: 0 20px;
+	line-height: 22px;
+	font-size: 14px;
+	color: #333;
+	font-weight: 200;
+	display: block;
+}
+.button{
+	width: 90%;
+	margin: 50px auto 0 auto;
+	background-color: #006eff;
+	color: #fff;
+	line-height: 40px;
+	height: 40px;
+	border-radius: 3px;
+	text-align: center;
+}

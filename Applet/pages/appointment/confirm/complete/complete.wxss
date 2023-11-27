@@ -1,0 +1,39 @@
+/* pages/appointment/confirm/complete/complete.wxss */
+.button{
+	width: 90%;
+	margin: 80px auto 0 auto;
+	background-color: #006eff;
+	color: #fff;
+	line-height: 40px;
+	height: 40px;
+	border-radius: 3px;
+	text-align: center;
+}
+.home{
+	background-color: #e4efff;
+	color: #006eff;
+	margin-top: 25px;
+}
+.ts{
+	color: #aaa;
+	font-size: 14px;
+	display: block;
+	text-align: center;
+	width: 100%;
+	margin-top: 10px;
+}
+.title{
+	font-size: 18px;
+	margin-top: 20px;
+	display:block;
+	width: 100%;
+	text-align: center;
+	color: #333;
+}
+image{
+	margin-top: 40px;
+	display: block;
+	height: 48px;
+	width: 48px;
+	margin: 40px auto 0 auto;
+}

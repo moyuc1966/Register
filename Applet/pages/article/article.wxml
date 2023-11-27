@@ -1,0 +1,18 @@
+<view wx:if="{{list.length == 0}}" class="not">
+	<image src="../../image/not.png"></image>
+	<text>数据为空</text>
+</view>
+<view wx:else>
+	<view class="block" wx:for="{{list}}" wx:key="index" bindtap="uigo" data-id="{{item.id}}">
+		<image src="{{url + item.imgUrl}}" mode="scaleToFill"></image>
+		<view class="cont">
+			<text class="tit">{{item.title}}</text>
+			<view>
+				<text class="ah">{{item.author}}</text>
+				<text class="time">{{item.time}}</text>
+			</view>
+		</view>
+	</view>
+</view>
+<text class="and" wx:if="{{list.length > 0}}">{{and}}</text>
+<view style="width: 1px; height: 30px;"></view>

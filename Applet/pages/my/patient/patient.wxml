@@ -1,0 +1,23 @@
+<wxs module="filter" src="/utils/tool.wxs"></wxs>
+	<view wx:if="{{patList.length == 0}}" class="not">
+		<image src="../../../image/not.png"></image>
+		<text>数据为空</text>
+	</view>
+<view class="main" wx:else>
+	<view class="top">最多可添加5位就诊人</view>
+	<view class="pat" wx:for="{{patList}}" wx:key="index">
+		<view  data-id="{{item.id}}" bindtap="uigo">
+			<view class="patCont">
+				<text class="name">{{item.name}}</text>
+				<text class="relation">{{item.relation}}</text>
+			</view>
+			<text class="card" space="emsp">{{item.certificate}} 余额：￥{{filter.moenyago(item.balance)}}</text>
+		</view>
+		<view class="change">
+			<switch checked="{{item.isdefault == 1}}" color="#006eff" style='zoom:.6;' bindchange="changeValue" data-index="{{index}}"></switch>
+			<text>默认就诊人</text>
+		</view>
+	</view>
+</view>
+<view class="button" bindtap="add">添加就诊人</view>
+<view style="width: 1;height: 50px;"></view>
