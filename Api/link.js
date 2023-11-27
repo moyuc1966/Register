@@ -1,10 +1,10 @@
 const mysql = require('mysql')
 const config = {
     host: 'localhost',
-    user: 'register',
-    password: 'bzjj55hcrtMh8AXM',
+    user: 'root',
+    password: 'admin',
     database: 'register',
-    timezone:"SYSTEM"
+    timezone: "SYSTEM"
 }
 let db = mysql.createConnection(config)
 
@@ -16,13 +16,13 @@ if (!db) {
     throw err;
 }
 //当连接关闭时，查询连接
-process.on('uncaughtException', function(err) {
+process.on('uncaughtException', function (err) {
     if (err) {
-      let db = mysql.createConnection(config)
-       mysql.restart();
+        let db = mysql.createConnection(config)
+        mysql.restart();
     }
-}); 
-process.on('uncaughtException', function(err) {
+});
+process.on('uncaughtException', function (err) {
     if (err.code == "PROTOCOL_CONNECTION_LOST") {
         mysql.restart();
     }

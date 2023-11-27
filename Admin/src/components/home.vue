@@ -109,6 +109,7 @@
     </el-container>
 </template>
 <script>
+import { EventBus } from '../eventBus.js';
 export default {
     data() {
         return {
@@ -122,6 +123,9 @@ export default {
     },
     created() {
         this.menu = localStorage.getItem('menu')
+        EventBus.$on('menu-changed', (newMenu) => {
+            this.menu = newMenu;
+        });
     },
     methods: {
         goBack() {

@@ -49,7 +49,7 @@
                         <el-tag style="height:25px; line-height:25px;"
                             :type="scope.row.state == '0' ? 'primary' : scope.row.state == '1' ? 'success' : 'error'"
                             disable-transitions>{{
-                                    scope.row.state == '0' ? "等待中" : scope.row.state == '1' ? "已完成" : "已取消"
+                                scope.row.state == '0' ? "等待中" : scope.row.state == '1' ? "已完成" : "已取消"
                             }}
                         </el-tag>
                     </template>
@@ -69,9 +69,9 @@
                     </template>
                 </el-table-column>
             </el-table>
-            <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange"
-                :current-page="currentPage" :page-sizes="[10, 12, 20, 30, 50]" :page-size="pageSize"
-                layout="total, sizes, prev, pager, next, jumper" :total="count">
+            <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange" :current-page="currentPage"
+                :page-sizes="[10, 12, 20, 30, 50]" :page-size="pageSize" layout="total, sizes, prev, pager, next, jumper"
+                :total="count">
             </el-pagination>
         </el-card>
         <el-dialog title="选择医生" :visible.sync="dialogFormVisible" width="500px" :close-on-click-modal="false"

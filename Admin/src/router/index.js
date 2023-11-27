@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Login from '../components/login.vue'
 import home from '../components/home.vue'
+import { EventBus } from '../eventBus.js';
 
 Vue.use(VueRouter)
 
@@ -70,6 +71,12 @@ router.beforeEach((to, from, next) => {
         const time = Number(localStorage.getItem('tokenStartTime'));
         if (token && time + (7 * 24 * 60 * 60) - (60 * 60) > Math.round(new Date().getTime() / 1000)) return next()
         return next('/login')
+    }
+    //如果是从/doctorMakeList页面过来，则获取当前页面的url
+    if (from.path === '/doctorMakeList') {
+        localStorage.setItem('menu', to.fullPath)
+        EventBus.$emit('menu-changed', to.fullPath);
+        next()
     }
     next()
 })

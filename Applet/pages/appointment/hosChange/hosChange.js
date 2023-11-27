@@ -18,11 +18,12 @@ Page({
 		time: '',
 		doctor: {},
 		row: {},
-		Mlist:[],
-		AList:[],
-		hosName:'',
-		patName:'',
-		depName:''
+		Mlist: [],
+		AList: [],
+		hosName: '',
+		patName: '',
+		depName: '',
+		today:new Date(),
 	},
 
 	/**
@@ -42,9 +43,9 @@ Page({
 			week: this.getweek(false),
 			time: this.getweek(false)[0].date,
 			chiose: arr,
-			hosName:options.hosName,
-			patName:options.patName,
-			depName:options.depName
+			hosName: options.hosName,
+			patName: options.patName,
+			depName: options.depName
 		})
 		wx.showLoading({
 			title: '加载中...',
@@ -64,7 +65,7 @@ Page({
 				} else {
 					wx.showToast({
 						title: res.data.msg,
-						icon:'error'
+						icon: 'error'
 					})
 				}
 			},
@@ -83,50 +84,43 @@ Page({
 	 * 生命周期函数--监听页面初次渲染完成
 	 */
 	getweek(iseasy) {
-		function formatDate(time) {
-			var date = new Date(time);
-			var year = date.getFullYear(),
-				month = date.getMonth() + 1,
-				day = date.getDate()
-			var newTime = year + '-' + (month < 10 ? '0' + month : month) + '-' + (day < 10 ? '0' + day : day)
-			return newTime;
-		}
 		let today = new Date()
-		let date2 = new Date();
-		let dateArray = []
-		// date2.setDate(today.getDate() + 7)
+		function formatDate(time) {
+		  var date = new Date(time);
+		  var year = date.getFullYear(),
+			  month = date.getMonth() + 1,
+			  day = date.getDate();
+		  var newTime = year + '-' + (month < 10 ? '0' + month : month) + '-' + (day < 10 ? '0' + day : day);
+		  return newTime;
+		}
+  
+		let dateArray = [];
+  
 		for (let i = 0; i < 7; i++) {
-			let everyDay = formatDate(date2.setDate(today.getDate() + i))
-			let map = {
-				0: '周日', 
-				1: '周一',
-				2: '周二',
-				3: '周三',
-				4: '周四',
-				5: '周五',
-				6: '周六'
-			}
-			let obj = {
-				date: everyDay,
-				week: map[new Date(date2.setDate(today.getDate() + i)).getDay()]
-			}
-			dateArray.push(obj)
+		  let nextDay = new Date(today);
+		  nextDay.setDate(today.getDate() + i);
+  
+		  let everyDay = iseasy ? nextDay.getDate() : formatDate(nextDay);
+		  let week = {
+			0: '周日',
+			1: '周一',
+			2: '周二',
+			3: '周三',
+			4: '周四',
+			5: '周五',
+			6: '周六',
+		  }[nextDay.getDay()];
+  
+		  let obj = {
+			date: everyDay,
+			week: iseasy && i === 0 ? '今日' : week,
+		  };
+  
+		  dateArray.push(obj);
 		}
-
-		function easy() {
-			let arr = []
-			dateArray.forEach((item, index) => {
-				let obj = {
-					date: item.date.slice(item.date.length - 2, item.date.length),
-					week: item.week
-				}
-				arr.push(obj)
-			})
-			arr[0].week = '今日'
-			return arr
-		}
-		return iseasy ? easy() : dateArray
-	},
+  
+		return dateArray;
+	  },
 	dateChange(e) {
 		if (this.data.chiose.indexOf(true) == e.currentTarget.dataset.index) return
 		let arr = Array(7).fill(false);
@@ -166,21 +160,21 @@ Page({
 		})
 	},
 	//得到可预约时间段
-	slipTime(time){
-		let start = Number(time.substr(0,5))
-		let end = Number(time.substr(6,12))
+	slipTime(time) {
+		let start = Number(time.substr(0, 5))
+		let end = Number(time.substr(6, 12))
 		let dif = end - start
 		let arr = []
 		arr.push(start.toString())
-		for(let i=1;i<dif*2;i++){
-			if(start+(0.5*i) < end-0.5 && (start+(0.5*i))-(Math.floor(start+(0.5*i)))<0.6) {
-				arr.push((start+(0.5*i)).toFixed(2))
+		for (let i = 1; i < dif * 2; i++) {
+			if (start + (0.5 * i) < end - 0.5 && (start + (0.5 * i)) - (Math.floor(start + (0.5 * i))) < 0.6) {
+				arr.push((start + (0.5 * i)).toFixed(2))
 			}
 		}
 		return arr
 	},
 	clickPup(e) {
-		if(this.data.option == false){
+		if (this.data.option == false) {
 			this.setData({
 				doctor: this.data.doctorList[e.currentTarget.dataset.index]
 			})
@@ -198,8 +192,8 @@ Page({
 					if (res.data.code == 200) {
 						this.setData({
 							row: res.data.data[0].rows[0],
-							MList:(res.data.data[0].rows[0].Mstate != 1 && res.data.data[0].rows[0].Msurplus > 0) ? this.slipTime(res.data.data[0].rows[0].MtimeSegment) : [],
-							AList:(res.data.data[0].rows[0].Astate != 1 && res.data.data[0].rows[0].Asurplus > 0) ? this.slipTime(res.data.data[0].rows[0].AtimeSegment) : []
+							MList: (res.data.data[0].rows[0].Mstate != 1 && res.data.data[0].rows[0].Msurplus > 0) ? this.slipTime(res.data.data[0].rows[0].MtimeSegment) : [],
+							AList: (res.data.data[0].rows[0].Astate != 1 && res.data.data[0].rows[0].Asurplus > 0) ? this.slipTime(res.data.data[0].rows[0].AtimeSegment) : []
 						})
 					} else {
 						wx.showToast({
@@ -239,7 +233,7 @@ Page({
 			})
 		}
 	},
-	chios(e){
+	chios(e) {
 		let patId = this.data.patId
 		let datetime = e.currentTarget.dataset.time;
 		let time = this.data.time + e.currentTarget.dataset.aorm;
@@ -253,10 +247,10 @@ Page({
 		let patName = this.data.patName
 		let data = `patId=${patId}&datetime=${datetime}&time=${time}&type=普通号&doctorId=${doctorId}&depTwoId=${depTwoId}&dia=${dia}&reg=${reg}&hosId=${hosId}&depName=${depName}&hosName=${hosName}&patName=${patName}`
 		wx.navigateTo({
-		  url: '../confirm/confirm?'+data,
+			url: '../confirm/confirm?' + data,
 		})
 	},
-	uigoDoctor(e){
+	uigoDoctor(e) {
 		let patId = this.data.patId
 		let time = this.data.time;
 		let doctorId = e.currentTarget.dataset.orderid
@@ -266,7 +260,7 @@ Page({
 		let patName = this.data.patName
 		let data = `patId=${patId}&time=${time}&type=普通号&doctorId=${doctorId}&depTwoId=${depTwoId}&depName=${depName}&hosName=${hosName}&patName=${patName}`
 		wx.navigateTo({
-		  url: '../doctorInfo/doctorInfo?' +data,
+			url: '../doctorInfo/doctorInfo?' + data,
 		})
 	},
 	onReady() {

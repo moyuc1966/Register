@@ -32,8 +32,8 @@
                 </el-radio-group>
             </div>
             <dir id="out-table">
-                <el-table :key="week.value" :row-style="{ height: '55px' }" id="out-table" :data="list"
-                    style="width: 100%" height="640" size="mini" :fit="true" :border="true">
+                <el-table :key="week.value" :row-style="{ height: '55px' }" id="out-table" :data="list" style="width: 100%"
+                    height="640" size="mini" :fit="true" :border="true">
                     <el-table-column fixed prop="doctorName" label="医生姓名" min-width="100" align="center">
                     </el-table-column>
                     <el-table-column fixed prop="depName" label="科室" min-width="100" align="center"></el-table-column>
@@ -226,13 +226,14 @@
                     </el-table-column>
                 </el-table>
             </dir>
-            <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange"
-                :current-page="currentPage" :page-sizes="[12, 10, 20, 30, 50]" :page-size="pageSize"
-                layout="total, sizes, prev, pager, next, jumper" :total="count">
+            <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange" :current-page="currentPage"
+                :page-sizes="[12, 10, 20, 30, 50]" :page-size="pageSize" layout="total, sizes, prev, pager, next, jumper"
+                :total="count">
             </el-pagination>
 
             <!-- 设置弹窗 -->
-            <el-dialog :show-close="false" width="930px" :visible.sync="dialogTableVisible" class="setUtw">
+            <el-dialog :show-close="false" width="930px" :visible.sync="dialogTableVisible" v-if="dialogTableVisible"
+                class="setUtw">
                 <div class="setMain">
                     <div class="set-left">
                         <p class="set-title">{{ setList.doctorName }}医生排班详情</p>
@@ -267,27 +268,27 @@
                         </div>
                         <div class="list-box">
                             <div class="block" @click="blockBind(index)"
-                                :style="{ background: isbag[index] ? '#2783ff' : '#fff' }"
-                                v-for="(item, index) in weekList" :key="index">
+                                :style="{ background: isbag[index] ? '#2783ff' : '#fff' }" v-for="(item, index) in weekList"
+                                :key="index">
                                 <p class="set-zhou" :style="{ color: isbag[index] ? '#fff' : '#1a7cff' }">{{
-                                        item.slice(-2)
+                                    item.slice(-2)
                                 }}</p>
                                 <p class="set-ri" :style="{ color: isbag[index] ? '#eee' : '#1a7cff' }">{{
-                                        item.slice(0, -3)
+                                    item.slice(0, -3)
                                 }}</p>
                                 <p class="Na">
                                     <span :style="{ color: isbag[index] ? '#fdf60a' : '#06a52f' }" v-if="(isfalse(setList['Mstate' + (index + 1)]) &&
-                                isfalse(setList['Astate' +
-                                    (index + 1)]))">
+                                                isfalse(setList['Astate' +
+                                                    (index + 1)]))">
                                         休息
                                     </span>
                                     <span v-else :style="{ color: isbag[index] ? '#fff' : '#1a7cff' }">
 
                                         {{ '号源' + ((isfalse(setList['Mstate' + (index + 1)]) ?
-                                                0 : Number(setList['Mnum' + (index + 1)]))
-                                                + (isfalse(setList['Astate' + (index + 1)]) ? 0 :
-                                                    Number(setList['Anum'
-                                                        + (index + 1)])))
+                                            0 : Number(setList['Mnum' + (index + 1)]))
+                                            + (isfalse(setList['Astate' + (index + 1)]) ? 0 :
+                                                Number(setList['Anum'
+                                                    + (index + 1)])))
                                         }}
                                     </span>
                                 </p>
@@ -311,18 +312,16 @@
                     <div class="addMorA" style="margin-top:50px;">
                         <div class="addMorABlock M" v-if="modobj.Mstate">
                             <P class="tit">上午排班</P>
-                            <el-time-picker style="width: 250px;" is-range v-model="modobj.MtimeSegment"
-                                range-separator="至" start-placeholder="开始时间" end-placeholder="结束时间"
-                                placeholder="选择时间范围">
+                            <el-time-picker style="width: 250px;" is-range v-model="modobj.MtimeSegment" range-separator="至"
+                                start-placeholder="开始时间" end-placeholder="结束时间" placeholder="选择时间范围">
                             </el-time-picker>
                             <el-input style="width: 250px;margin-top:15px;" type="Number" placeholder="上午可预约人数"
                                 v-model="modobj.Mnum" maxlength="2" show-word-limit></el-input>
                         </div>
                         <div class="addMorABlock A" v-if="modobj.Astate">
                             <P class="tit">下午排班</P>
-                            <el-time-picker style="width: 250px;" is-range v-model="modobj.AtimeSegment"
-                                range-separator="至" start-placeholder="开始时间" end-placeholder="结束时间"
-                                placeholder="选择时间范围">
+                            <el-time-picker style="width: 250px;" is-range v-model="modobj.AtimeSegment" range-separator="至"
+                                start-placeholder="开始时间" end-placeholder="结束时间" placeholder="选择时间范围">
                             </el-time-picker>
                             <el-input type="Number" style="width: 250px;margin-top:15px;" placeholder="下午可预约人数"
                                 v-model="modobj.Anum" maxlength="2" show-word-limit></el-input>
@@ -747,6 +746,9 @@ export default {
                         ? this.modobj.Mnum
                         : this.modobj.Mnum - (this.list[this.setIndex]['Mnum' + (this.bindIndex + 1)] - this.list[this.setIndex]['Msurplus' + (this.bindIndex + 1)]),
             }
+
+            if (data.Asurplus == 0) data.Asurplus = data.Anum
+            if (data.Msurplus == 0) data.Msurplus = data.Mnum
 
             const loading = this.$loading({
                 lock: true,
